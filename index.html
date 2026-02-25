@@ -3,165 +3,794 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Jasper Klust — Klusjesman Utrecht | Montage & kleine reparaties</title>
-  <meta name="description" content="Jasper Klust — betrouwbare klusjesman in Utrecht. Montage, ophangen lampen, kleine reparaties en praktische hulp in huis. Duidelijk tarief €48,50/u — eenvoudig contact via e-mail, telefoon of WhatsApp." />
-  <meta name="keywords" content="Klusjesman Utrecht, Klusbedrijf Utrecht, Montage Utrecht, Kleine reparaties Utrecht, Ophangen lampen Utrecht" />
-  <meta name="theme-color" content="#2f6f4e" />
+  <meta name="theme-color" content="#0f3d2e" />
+
+  <!-- SEO -->
+  <title>Klusjesman Utrecht | Jasper Klust – montage, ophangen & kleine reparaties</title>
+  <meta
+    name="description"
+    content="Jasper Klust is een betrouwbare klusjesman in Utrecht stad voor montage, ophangen en kleine reparaties. Transparant tarief €48,50 p/u (0% btw). Neem direct contact op."
+  />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.jasperklust.nl/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Klusjesman Utrecht | Jasper Klust" />
+  <meta property="og:description" content="Montage, ophangen & kleine reparaties in Utrecht. €48,50 p/u (0% btw). Transparant en netjes." />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:url" content="https://www.jasperklust.nl/" />
+
+  <!-- Replace this with a real social image when you have one -->
+  <!-- <meta property="og:image" content="https://www.jasperklust.nl/og.jpg" /> -->
+
+  <!-- JSON-LD (LocalBusiness) -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Jasper Klust",
-    "telephone":"+31618010860",
-    "address":{"@type":"PostalAddress","addressLocality":"Utrecht","addressCountry":"NL"},
-    "areaServed":"Utrecht",
-    "url":"https://jasperklust.nl/",
-    "description":"Klusjesman Utrecht — montage, ophangen lampen en kleine reparaties voor particulieren."
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Jasper Klust",
+    "description": "Klusjesman Utrecht voor montage, ophangen lampen, TV-beugels/spiegels en kleine reparaties.",
+    "areaServed": ["Utrecht", "Utrecht stad"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Utrecht",
+      "addressCountry": "NL"
+    },
+    "priceRange": "€€",
+    "url": "https://www.jasperklust.nl/",
+    "telephone": "+31-6-00000000",
+    "email": "info@jasperklust.nl",
+    "keywords": [
+      "Klusjesman Utrecht",
+      "Klusbedrijf Utrecht",
+      "Montage Utrecht",
+      "Kleine reparaties Utrecht",
+      "Ophangen lampen Utrecht"
+    ]
   }
   </script>
 
   <style>
     :root{
-      --accent:#2f6f4e;
-      --muted:#5f6b61;
-      --bg:#ffffff;
-      --card:#f7fbf8;
-      --max:980px;
-      --radius:12px;
-      --gap:18px;
+      --bg: #f6faf7;
+      --card: #ffffff;
+      --text: #0f1f18;
+      --muted: #3a5a4e;
+      --brand: #0f3d2e;      /* deep green */
+      --brand2: #2f6b4f;     /* medium green */
+      --accent: #cfe7d8;     /* soft green */
+      --ring: rgba(15,61,46,.22);
+      --shadow: 0 12px 30px rgba(15, 31, 24, .08);
+      --radius: 18px;
+      --max: 1080px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
-      margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      background:var(--bg);color:#0b1410;padding:20px;display:flex;justify-content:center;
-      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 20% -10%, #e9f5ee, transparent 60%),
+                  radial-gradient(900px 700px at 90% 10%, #e3f2ea, transparent 55%),
+                  var(--bg);
+      line-height: 1.55;
     }
-    .container{width:100%;max-width:var(--max)}
-    header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
-    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(180deg,var(--accent),#3a7b57);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;box-shadow:0 4px 18px rgba(47,111,78,.12)}
-    h1{margin:0;font-size:20px}
-    .tag{color:var(--muted);font-size:14px;margin-top:6px}
-    main{display:grid;gap:var(--gap);grid-template-columns:1fr}
-    @media(min-width:820px){ main{grid-template-columns:1fr 320px;align-items:start} header h1{font-size:22px} }
-    .card{background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 1px 0 rgba(11,20,16,.04)}
-    .hero{display:flex;flex-direction:column;gap:12px}
-    .rate{color:var(--accent);font-weight:700;font-size:18px}
-    .cta{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid rgba(11,20,16,.06);color:var(--accent);background:transparent}
-    .btn.primary{background:var(--accent);color:#fff;border:none;box-shadow:0 6px 18px rgba(47,111,78,.12)}
-    .muted{color:var(--muted);font-size:14px}
-    h2{margin:0 0 10px;font-size:16px}
-    ul{margin:8px 0;padding-left:18px}
-    .about-row{display:flex;gap:12px;align-items:flex-start}
-    .about-row img{width:110px;height:110px;object-fit:cover;border-radius:10px;flex-shrink:0}
-    @media(max-width:640px){ .about-row{flex-direction:row} main{grid-template-columns:1fr} .about-row img{width:96px;height:96px} }
-    .process{display:grid;gap:8px}
-    .chip{display:inline-block;background:#fff;padding:6px 10px;border-radius:999px;border:1px solid rgba(11,20,16,.04);font-size:13px;color:var(--muted)}
-    footer{margin-top:14px;color:var(--muted);font-size:13px;text-align:center}
-    .seo-list{font-size:13px;color:var(--muted);margin-top:8px}
+
+    a{ color:inherit; text-decoration:none; }
+    a:focus-visible, button:focus-visible{
+      outline: 3px solid var(--ring);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    /* Layout */
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
+    header{
+      position: sticky; top:0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(246, 250, 247, .72);
+      border-bottom: 1px solid rgba(15,61,46,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:2px;
+      font-weight: 800; letter-spacing:.2px;
+    }
+    .brand small{
+      font-weight:600; color: var(--muted);
+    }
+    nav ul{
+      display:flex; gap: 14px; list-style:none; padding:0; margin:0;
+      align-items:center;
+    }
+    nav a{
+      font-weight: 650;
+      color: var(--muted);
+      padding: 10px 10px;
+      border-radius: 12px;
+    }
+    nav a:hover{ background: rgba(15,61,46,.06); color: var(--text); }
+
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      border: 1px solid rgba(15,61,46,.14);
+      padding: 11px 14px;
+      border-radius: 999px;
+      background: var(--card);
+      box-shadow: 0 8px 18px rgba(15,31,24,.06);
+      font-weight: 750;
+      transition: transform .08s ease, box-shadow .08s ease, background .08s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(15,31,24,.10); }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(15,61,46,.22);
+    }
+    .btn.primary:hover{ box-shadow: 0 16px 34px rgba(15,61,46,.28); }
+    .btn .dot{
+      width:10px; height:10px; border-radius: 999px;
+      background: #7fe0b5;
+      box-shadow: 0 0 0 4px rgba(127,224,181,.18);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 44px 0 20px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .heroCard{
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(15,61,46,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(207,231,216,.60);
+      border: 1px solid rgba(15,61,46,.10);
+      color: var(--brand);
+      font-weight: 750;
+      margin-bottom: 12px;
+    }
+    h1{
+      font-size: clamp(28px, 3.4vw, 44px);
+      line-height: 1.1;
+      margin: 8px 0 10px;
+      letter-spacing: -0.4px;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: 1.06rem;
+      margin: 0 0 16px;
+      max-width: 58ch;
+    }
+    .heroBullets{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .pill{
+      display:flex; gap:10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid rgba(15,61,46,.10);
+    }
+    .pill b{ display:block; }
+    .pill span{ color: var(--muted); font-size: .94rem; }
+    .icon{
+      width: 36px; height:36px;
+      border-radius: 12px;
+      background: rgba(207,231,216,.65);
+      border: 1px solid rgba(15,61,46,.10);
+      display:grid; place-items:center;
+      flex: 0 0 auto;
+      color: var(--brand);
+      font-weight: 900;
+    }
+
+    /* Side card */
+    .sideTop{
+      display:flex; flex-direction:column; gap: 12px;
+      height: 100%;
+    }
+    .priceTag{
+      background: linear-gradient(135deg, rgba(15,61,46,.06), rgba(47,107,79,.10));
+      border: 1px solid rgba(15,61,46,.14);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .priceTag .price{
+      font-size: 28px; font-weight: 900; letter-spacing: -0.2px;
+      margin: 2px 0 2px;
+      color: var(--brand);
+    }
+    .note{
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .contactBox{
+      background: #fff;
+      border: 1px solid rgba(15,61,46,.10);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 10px 24px rgba(15,31,24,.06);
+    }
+    .contactBox h3{ margin:0 0 8px; font-size: 1.05rem; }
+    .contactLinks{
+      display:flex; flex-direction:column; gap:10px;
+      margin-top: 10px;
+    }
+    .linkRow{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,61,46,.10);
+      background: rgba(246,250,247,.65);
+    }
+    .linkRow small{ color: var(--muted); display:block; }
+    .linkRow .right{ font-weight: 800; color: var(--brand); }
+
+    /* Sections */
+    section{ padding: 28px 0; }
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .sectionHead h2{
+      margin: 0;
+      font-size: clamp(20px, 2.3vw, 28px);
+      letter-spacing: -0.2px;
+    }
+    .sectionHead p{
+      margin:0;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .card{
+      grid-column: span 6;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(15,61,46,.10);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 26px rgba(15,31,24,.06);
+      padding: 18px;
+    }
+    .card h3{ margin: 0 0 8px; font-size: 1.05rem; }
+    .card p{ margin: 0; color: var(--muted); }
+
+    .list{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .list li{ margin: 6px 0; }
+
+    .steps{
+      display:grid;
+      gap: 12px;
+    }
+    .step{
+      display:flex; gap:12px;
+      background: #fff;
+      border: 1px solid rgba(15,61,46,.10);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+    .stepNum{
+      width: 34px; height:34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color:#fff;
+      display:grid; place-items:center;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+    .step b{ display:block; margin-bottom: 4px; }
+    .step span{ color: var(--muted); }
+
+    .mutedBox{
+      background: rgba(207,231,216,.35);
+      border: 1px dashed rgba(15,61,46,.22);
+      border-radius: var(--radius);
+      padding: 14px;
+      color: var(--muted);
+    }
+
+    footer{
+      padding: 24px 0 90px;
+      color: var(--muted);
+    }
+
+    /* Mobile sticky bar */
+    .mobileBar{
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(15,61,46,.10);
+      padding: 10px 12px;
+      z-index: 60;
+      display:none;
+    }
+    .mobileBar .row{
+      display:flex; gap:10px;
+    }
+    .mobileBar a{
+      flex: 1;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,61,46,.12);
+      background: #fff;
+      font-weight: 850;
+      display:flex; align-items:center; justify-content:center; gap:10px;
+    }
+    .mobileBar a.primary{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color:#fff;
+      border-color: transparent;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      nav ul{ display:none; } /* keep it simple */
+      .card{ grid-column: span 12; }
+      .heroBullets{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px){
+      .cta .btn:not(.primary){ display:none; }
+      .mobileBar{ display:block; }
+    }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <div class="logo" aria-hidden>JK</div>
-      <div>
-        <h1>Jasper Klust — Klusjesman Utrecht</h1>
-        <div class="tag">Rustig, eerlijk en zorgvuldig. Montage, ophangen lampen Utrecht en kleine reparaties voor particulieren.</div>
-      </div>
-    </header>
+  <!--
+    ⚠️ VERVANG CONTACTGEGEVENS:
+    - Telefoon: +31-6-00000000 en 06 00 00 00 00
+    - E-mail: info@jasperklust.nl
+    - WhatsApp: https://wa.me/31600000000
+  -->
 
-    <main>
-      <section>
-        <div class="card hero" role="region" aria-label="Introductie">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-            <div>
-              <div class="rate">€48,50 / uur (0% btw)</div>
-              <div class="muted" style="margin-top:6px">Klant betaalt gewerkte tijd — ik kom op de fiets (reistijd telt mee). Transparant vooraf.</div>
-            </div>
-            <div class="chip">Werkgebied: Utrecht stad</div>
-          </div>
-
-          <div class="cta" style="margin-top:8px">
-            <a class="btn primary" href="mailto:jasper@jasperklust.nl">E-mail</a>
-            <a class="btn" href="tel:+31618010860">Bel</a>
-            <a class="btn" href="https://wa.me/31618010860?text=Hallo%20Jasper,%20ik%20zoek%20iemand%20voor%20een%20kleine%20klus%20in%20Utrecht" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
-
-          <div style="margin-top:14px">
-            <h2>Werkwijze — helder en simpel</h2>
-            <div class="process">
-              <div><strong>1. Contact</strong> — stuur korte omschrijving, woonplaats en optionele foto’s. Geef aan of je mee wilt helpen.</div>
-              <div><strong>2. Afspraak</strong> — ik kijk of een schouw nodig is of plan direct een klus; vooraf duidelijkheid over aanpak en kosten.</div>
-              <div><strong>3. Uitvoering</strong> — zorgvuldig werken, ruimte netjes achterlaten en open communicatie.</div>
-            </div>
-          </div>
+  <header>
+    <div class="wrap">
+      <div class="nav" aria-label="Hoofdnavigatie">
+        <div class="brand">
+          <span>Jasper Klust</span>
+          <small>Klusjesman Utrecht stad</small>
         </div>
 
-        <div style="height:var(--gap)"></div>
-
-        <div class="card" aria-labelledby="services">
-          <h2 id="services">Diensten — montage & kleine reparaties</h2>
-          <p class="muted">Klusjesman Utrecht voor particulieren — geen grote verbouwingen, wel praktische hulp.</p>
+        <nav aria-label="Secties">
           <ul>
-            <li>Meubels monteren — Montage Utrecht</li>
-            <li>Plankjes & schilderijen ophangen — Ophangen lampen Utrecht</li>
-            <li>Lamp ophangen & TV-beugel/scherm ophangen</li>
-            <li>Kleine reparaties Utrecht & hang- en sluitwerk</li>
-            <li>Afwerking, extra handjes, helpen met verhuizen (in overleg)</li>
+            <li><a href="#diensten">Diensten</a></li>
+            <li><a href="#werkwijze">Werkwijze</a></li>
+            <li><a href="#tarief">Tarief</a></li>
+            <li><a href="#over">Over Jasper</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
-          <div class="seo-list">Klusjesman Utrecht • Klusbedrijf Utrecht • Montage Utrecht • Kleine reparaties Utrecht • Ophangen lampen Utrecht</div>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="tel:+31600000000" aria-label="Bel Jasper">
+            <span class="dot" aria-hidden="true"></span> Bel
+          </a>
+          <a class="btn primary" href="#contact" aria-label="Ga naar contact">
+            Direct contact
+          </a>
         </div>
+      </div>
+    </div>
+  </header>
 
-        <div style="height:var(--gap)"></div>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div class="heroCard">
+            <div class="kicker" role="note">
+              Rustig. Netjes. Transparant.
+            </div>
 
-        <div class="card" aria-labelledby="about">
-          <h2 id="about">Over Jasper</h2>
-          <div class="about-row">
-            <img src="Jasper.png" alt="Foto van Jasper" />
-            <div>
-              <p class="muted">Jasper woont in Utrecht en werkt parttime bij Triodos. Daarnaast helpt hij bewoners met kleine klussen. Handig, denkt mee en werkt netjes — betrouwbaar voor alle leeftijden.</p>
-              <p class="muted" style="margin-top:10px"><strong>Beschikbaarheid:</strong> donderdag & vrijdag. Avonden en weekenden in overleg.</p>
+            <h1>Klusjesman Utrecht voor montage, ophangen & kleine reparaties</h1>
+            <img src="Jasper.png">
+            <p class="lead">
+              Jasper Klust helpt particulieren in <strong>Utrecht stad</strong> met kleine klusjes in huis.
+              Geen grote verbouwingen — wel duidelijke afspraken, meedenken en netjes opleveren.
+            </p>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px;">
+              <a class="btn primary" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)&body=Hoi%20Jasper%2C%0A%0AIk%20heb%20hulp%20nodig%20bij%3A%0A-%20...%0A%0ALocatie%3A%20Utrecht%20(%20wijk%20...%20)%0AWanneer%3A%20...%0AFoto's%20(optioneel)%3A%20...%0A%0AGroet%2C%0A"
+                 aria-label="Mail Jasper">
+                Mail (snelst)
+              </a>
+              <a class="btn" href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="WhatsApp Jasper">
+                WhatsApp
+              </a>
+              <a class="btn" href="#werkwijze" aria-label="Lees de werkwijze">
+                Werkwijze
+              </a>
+            </div>
+
+            <div class="heroBullets" aria-label="Kernpunten">
+              <div class="pill">
+                <div class="icon" aria-hidden="true">✓</div>
+                <div>
+                  <b>Helder & professioneel</b>
+                  <span>Transparante communicatie vooraf</span>
+                </div>
+              </div>
+
+              <div class="pill">
+                <div class="icon" aria-hidden="true">€</div>
+                <div>
+                  <b>€48,50 p/u (0% btw)</b>
+                  <span>Gewerkte tijd, reistijd = werktijd</span>
+                </div>
+              </div>
+
+              <div class="pill">
+                <div class="icon" aria-hidden="true">🚲</div>
+                <div>
+                  <b>Op de fiets in Utrecht</b>
+                  <span>Snel in de stad, duurzaam</span>
+                </div>
+              </div>
+
+              <div class="pill">
+                <div class="icon" aria-hidden="true">🕒</div>
+                <div>
+                  <b>Donderdag & vrijdag</b>
+                  <span>Avonden/weekenden in overleg</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <aside>
-        <div class="card">
-          <h2 style="margin-bottom:8px">Direct contact</h2>
-          <div class="muted">Geen formulier — kies wat voor jou prettig is.</div>
-          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
-            <a class="btn primary" href="mailto:jasper@jasperklust.nl">Stuur e-mail</a>
-            <a class="btn" href="tel:+31618010860">Bel: +31 6 18 01 08 60</a>
-            <a class="btn" href="https://wa.me/31618010860?text=Hallo%20Jasper,%20ik%20zoek%20iemand%20voor%20een%20kleine%20klus%20in%20Utrecht" target="_blank" rel="noopener">WhatsApp</a>
+          <aside class="sideTop">
+            <div class="priceTag" id="tarief" aria-label="Tarief en transparantie">
+              <small style="color:var(--muted); font-weight:700;">Tarief</small>
+              <div class="price">€48,50 <span style="font-size:16px; font-weight:800; color:var(--muted);">per uur</span></div>
+              <p class="note">
+                0% btw. Je betaalt de <strong>gewerkte tijd</strong>. Jasper komt op de fiets.
+                <strong>Reistijd</strong> telt mee als werktijd — altijd vooraf helder afgestemd.
+              </p>
+              <div style="height:10px"></div>
+              <div class="mutedBox">
+                <strong>Sociaal in overleg:</strong> zit je financieel krap maar heb je hulp nodig?
+                Stuur gerust een bericht — dan kijken we samen naar een passende afspraak.
+              </div>
+            </div>
+
+            <div class="contactBox" id="contact">
+              <h3>Contact (Utrecht stad)</h3>
+              <p class="note">
+                Beschrijf je klus + woonplaats. Foto’s mogen, hoeft niet.
+                Samen klussen of zelfstandig uitvoeren: beide kan.
+              </p>
+
+              <div class="contactLinks" role="list">
+                <a class="linkRow" role="listitem"
+                   href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)&body=Hoi%20Jasper%2C%0A%0AIk%20heb%20hulp%20nodig%20bij%3A%0A-%20...%0A%0ALocatie%3A%20Utrecht%20(%20wijk%20...%20)%0AWanneer%3A%20...%0AFoto's%20(optioneel)%3A%20...%0A%0AGroet%2C%0A">
+                  <div>
+                    <small>E-mail</small>
+                    <strong>info@jasperklust.nl</strong>
+                  </div>
+                  <div class="right">Mail</div>
+                </a>
+
+                <a class="linkRow" role="listitem" href="tel:+31600000000">
+                  <div>
+                    <small>Telefoon</small>
+                    <strong>06 00 00 00 00</strong>
+                  </div>
+                  <div class="right">Bel</div>
+                </a>
+
+                <a class="linkRow" role="listitem" href="https://wa.me/31600000000" target="_blank" rel="noopener">
+                  <div>
+                    <small>WhatsApp</small>
+                    <strong>Stuur een bericht</strong>
+                  </div>
+                  <div class="right">App</div>
+                </a>
+
+                <div class="mutedBox">
+                  <strong>Werkgebied:</strong> Utrecht stad (buiten Utrecht in overleg).
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIENSTEN -->
+    <section id="diensten">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Diensten</h2>
+            <p>
+              Voor particulieren in Utrecht die hulp zoeken bij <strong>montage</strong>, <strong>ophangen</strong> en
+              <strong>kleine reparaties</strong>. Geen grote verbouwingen.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid" role="list" aria-label="Dienstenlijst">
+          <div class="card" role="listitem">
+            <h3>Montage Utrecht</h3>
+            <p>Meubels monteren, kastjes stellen, losse onderdelen netjes afwerken.</p>
+            <ul class="list">
+              <li>Meubels monteren (IKEA e.d.)</li>
+              <li>Afwerking & kleine aanpassingen</li>
+              <li>Extra handjes bij klussen</li>
+            </ul>
           </div>
 
-          <div style="margin-top:12px">
-            <div class="muted"><strong>Tarief</strong></div>
-            <div style="margin-top:6px" class="rate">€48,50 / uur (0% btw)</div>
-            <div style="margin-top:10px" class="muted">Reistijd telt mee als werktijd. Financieel krap? Neem gerust contact op — maatwerk mogelijk.</div>
+          <div class="card" role="listitem">
+            <h3>Ophangen lampen Utrecht</h3>
+            <p>Van plankje tot TV-beugel: veilig, waterpas en strak.</p>
+            <ul class="list">
+              <li>Plankjes ophangen</li>
+              <li>Lampen ophangen</li>
+              <li>TV-beugel / spiegel ophangen</li>
+            </ul>
+          </div>
+
+          <div class="card" role="listitem">
+            <h3>Kleine reparaties Utrecht</h3>
+            <p>Praktische hulp in huis: fixen wat los zit of niet lekker loopt.</p>
+            <ul class="list">
+              <li>Kleine reparaties</li>
+              <li>Hang- en sluitwerk</li>
+              <li>Afstelling deuren/ladekasten</li>
+            </ul>
+          </div>
+
+          <div class="card" role="listitem">
+            <h3>Hulp in huis</h3>
+            <p>Handige ondersteuning wanneer je net een extra paar handen kunt gebruiken.</p>
+            <ul class="list">
+              <li>Helpen met verhuizen</li>
+              <li>Keuken (deels) installeren in overleg</li>
+              <li>Samen klussen of zelfstandig</li>
+            </ul>
           </div>
         </div>
 
-        <div style="height:var(--gap)"></div>
-
-        <div class="card small muted">
-          <strong>Zo bereid je je contact voor</strong>
-          <ol style="margin:8px 0 0;padding-left:18px">
-            <li>Omschrijf de klus kort</li>
-            <li>Meld je woonplaats (Utrecht)</li>
-            <li>Voeg foto’s toe als dat helpt</li>
-          </ol>
+        <div style="height:14px"></div>
+        <div class="mutedBox">
+          Zoek je een <strong>klusbedrijf Utrecht</strong> voor klein werk? Stuur even wat details, dan laat Jasper snel weten
+          of het past en wat je kunt verwachten qua aanpak en kosten.
         </div>
-      </aside>
-    </main>
+      </div>
+    </section>
 
-    <footer>
-      <div>Jasper Klust — Klusjesman Utrecht • <a href="mailto:jasper@jasperklust.nl">jasper@jasperklust.nl</a> • <a href="tel:+31618010860">+31 6 18 01 08 60</a></div>
-      <div style="margin-top:6px" class="muted">Eenvoudig, betrouwbaar en gericht op contact — vervang gegevens waar nodig.</div>
-    </footer>
+    <!-- WERKWIJZE -->
+    <section id="werkwijze">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Werkwijze</h2>
+            <p>Duidelijke stappen, zodat je weet waar je aan toe bent — inclusief transparantie over kosten.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card" style="grid-column: span 7;">
+            <div class="steps" aria-label="Stappenplan">
+              <div class="step">
+                <div class="stepNum" aria-hidden="true">1</div>
+                <div>
+                  <b>Neem contact op (mail/telefoon/WhatsApp)</b>
+                  <span>
+                    Omschrijving van de klus, woonplaats (Utrecht), foto’s optioneel, en of je wil
+                    <strong>samen klussen</strong> of dat Jasper het zelfstandig uitvoert.
+                  </span>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="stepNum" aria-hidden="true">2</div>
+                <div>
+                  <b>Jasper neemt contact op</b>
+                  <span>
+                    Samen bepalen we of een schouw nodig is of dat we direct een afspraak plannen.
+                    Je krijgt vooraf duidelijkheid over aanpak en kosten.
+                  </span>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="stepNum" aria-hidden="true">3</div>
+                <div>
+                  <b>Uitvoering</b>
+                  <span>
+                    Zorgvuldig werken, heldere communicatie, en het netjes achterlaten.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="grid-column: span 5;">
+            <h3>Wat je vooraf kunt sturen</h3>
+            <p>Dan kan Jasper sneller inschatten wat nodig is.</p>
+            <ul class="list">
+              <li>Wat moet er precies gebeuren?</li>
+              <li>Welke wijk in Utrecht?</li>
+              <li>Wanneer komt het uit (do/vr, of avond/weekend in overleg)?</li>
+              <li>Foto’s van de situatie (optioneel)</li>
+              <li>Materiaal al in huis, of nog nodig?</li>
+            </ul>
+
+            <div style="height:12px"></div>
+            <a class="btn primary" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)&body=Hoi%20Jasper%2C%0A%0AIk%20heb%20hulp%20nodig%20bij%3A%0A-%20...%0A%0ALocatie%3A%20Utrecht%20(%20wijk%20...%20)%0AWanneer%3A%20...%0AFoto's%20(optioneel)%3A%20...%0A%0AGroet%2C%0A">
+              Stuur een klusaanvraag
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPARANTIE -->
+    <section aria-label="Transparantie en prijs">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Transparant tarief</h2>
+            <p>Geen gedoe: duidelijke afspraken over tijd en kosten, vooraf besproken.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Uurtarief</h3>
+            <p><strong>€48,50 per uur</strong> (0% btw).</p>
+            <ul class="list">
+              <li>Je betaalt de gewerkte tijd</li>
+              <li>Jasper komt op de fiets</li>
+              <li>Reistijd telt mee als werktijd</li>
+              <li>Vooraf transparant communiceren</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Sociaal in overleg</h3>
+            <p>
+              Als je financieel krap zit maar hulp nodig hebt, zijn andere afspraken in overleg mogelijk.
+              Stuur een kort bericht — zonder oordeel.
+            </p>
+            <div style="height:12px"></div>
+            <a class="btn" href="https://wa.me/31600000000" target="_blank" rel="noopener">WhatsApp hierover</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVER -->
+    <section id="over">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Over Jasper</h2>
+            <p>Persoonlijk, betrouwbaar en met een “duurzame” vibe.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card" style="grid-column: span 7;">
+            <h3>Wie is Jasper Klust?</h3>
+            <p>
+              Jasper woont in Utrecht en werkt parttime bij Triodos. Daarnaast klust hij bij.
+              Hij is handig, denkt mee en werkt netjes — precies wat je wil als je iemand in huis haalt.
+            </p>
+            <ul class="list">
+              <li><strong>Locatie:</strong> Utrecht stad</li>
+              <li><strong>Werkgebied:</strong> Utrecht stad (buiten Utrecht in overleg)</li>
+              <li><strong>Beschikbaarheid:</strong> donderdag & vrijdag, avonden/weekenden in overleg</li>
+            </ul>
+          </div>
+
+          <div class="card" style="grid-column: span 5;">
+            <h3>Past jouw klus?</h3>
+            <p>
+              Jasper richt zich op kleine en middelgrote klussen in huis. Denk aan montage, ophangen en praktische hulp.
+              Geen grote verbouwingen.
+            </p>
+            <div style="height:12px"></div>
+            <a class="btn primary" href="tel:+31600000000">Bel om te checken</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO BLOK -->
+    <section aria-label="SEO tekst">
+      <div class="wrap">
+        <div class="card" style="padding: 18px;">
+          <h3 style="margin:0 0 8px;">Klusjesman in Utrecht nodig?</h3>
+          <p style="margin:0; color: var(--muted);">
+            Jasper Klust is een <strong>klusjesman Utrecht</strong> voor particulieren die hulp zoeken bij
+            <strong>Montage Utrecht</strong>, <strong>kleine reparaties Utrecht</strong> en
+            <strong>ophangen lampen Utrecht</strong>. Zoek je een betrouwbaar <strong>klusbedrijf Utrecht</strong>
+            voor klein werk? Neem contact op en je krijgt vooraf duidelijkheid over aanpak en kosten.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="mutedBox">
+        <strong>Tip:</strong> bewaar deze pagina bij je favorieten.
+        Contact: <a href="mailto:info@jasperklust.nl"><strong>info@jasperklust.nl</strong></a> ·
+        <a href="tel:+31600000000"><strong>06 00 00 00 00</strong></a> ·
+        <a href="https://wa.me/31600000000" target="_blank" rel="noopener"><strong>WhatsApp</strong></a>
+      </div>
+      <p style="margin: 14px 0 0; font-size:.95rem;">
+        © <span id="year"></span> Jasper Klust · Utrecht stad · Rustig, groen en professioneel.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Mobile CTA bar -->
+  <div class="mobileBar" aria-label="Snelle acties">
+    <div class="row">
+      <a href="tel:+31600000000" aria-label="Bel Jasper">Bel</a>
+      <a class="primary" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)" aria-label="Mail Jasper">Mail</a>
+      <a href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="WhatsApp Jasper">App</a>
+    </div>
   </div>
+
+  <script>
+    // small nicety
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Optional: highlight active section in URL without jumping
+    const sections = ["diensten","werkwijze","tarief","over","contact"].map(id => document.getElementById(id)).filter(Boolean);
+    const setHash = (id) => history.replaceState(null, "", "#" + id);
+
+    const obs = new IntersectionObserver((entries) => {
+      const visible = entries.filter(e => e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if (visible && visible.target && visible.target.id) setHash(visible.target.id);
+    }, { rootMargin: "-20% 0px -65% 0px", threshold: [0.1, 0.25, 0.5] });
+
+    sections.forEach(s => obs.observe(s));
+  </script>
 </body>
 </html>
