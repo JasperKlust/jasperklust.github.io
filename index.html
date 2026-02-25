@@ -61,9 +61,19 @@
       --brand2: #2f6b4f;     /* medium green */
       --accent: #cfe7d8;     /* soft green */
       --ring: rgba(15,61,46,.22);
+      --star: #e1a300;
       --shadow: 0 12px 30px rgba(15, 31, 24, .08);
       --radius: 18px;
       --max: 1080px;
+      --scroll-offset: 84px;
+    }
+
+    @font-face{
+      font-family: "Monofonto";
+      src: url("media/fonts/monofonto rg.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
     }
 
     *{ box-sizing:border-box; }
@@ -93,17 +103,21 @@
       background: rgba(246, 250, 247, .72);
       border-bottom: 1px solid rgba(15,61,46,.08);
     }
+    section, #tarief, #contact{
+      scroll-margin-top: var(--scroll-offset);
+    }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
       padding: 14px 0;
       gap: 12px;
     }
     .brand{
-      display:flex; flex-direction:column; gap:2px;
-      font-weight: 800; letter-spacing:.2px;
+      display:flex; align-items:center;
     }
-    .brand small{
-      font-weight:600; color: var(--muted);
+    .brand img{
+      height: 36px;
+      width: auto;
+      display:block;
     }
     nav ul{
       display:flex; gap: 14px; list-style:none; padding:0; margin:0;
@@ -178,6 +192,11 @@
       line-height: 1.1;
       margin: 8px 0 10px;
       letter-spacing: -0.4px;
+      font-weight: 400;
+    }
+    h1, h2, h3, h4, h5, h6{
+      font-family: "Monofonto", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-weight: 400;
     }
     .lead{
       color: var(--muted);
@@ -185,31 +204,23 @@
       margin: 0 0 16px;
       max-width: 58ch;
     }
-    .heroBullets{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+    .goodToKnow{
       margin-top: 14px;
-    }
-    .pill{
-      display:flex; gap:10px;
-      padding: 12px 12px;
+      padding: 12px;
       border-radius: 14px;
       background: #fff;
       border: 1px solid rgba(15,61,46,.10);
     }
-    .pill b{ display:block; }
-    .pill span{ color: var(--muted); font-size: .94rem; }
-    .icon{
-      width: 36px; height:36px;
-      border-radius: 12px;
-      background: rgba(207,231,216,.65);
-      border: 1px solid rgba(15,61,46,.10);
-      display:grid; place-items:center;
-      flex: 0 0 auto;
-      color: var(--brand);
-      font-weight: 900;
+    .goodToKnow h3{
+      margin: 0 0 8px;
+      font-size: 1rem;
     }
+    .goodToKnow ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .goodToKnow li{ margin: 6px 0; }
 
     /* Side card */
     .sideTop{
@@ -254,6 +265,20 @@
     }
     .linkRow small{ color: var(--muted); display:block; }
     .linkRow .right{ font-weight: 800; color: var(--brand); }
+    .iconActions{
+      display:flex; gap:8px; align-items:center;
+    }
+    .iconBtn{
+      width: 34px; height: 34px;
+      border-radius: 999px;
+      display:grid; place-items:center;
+      background: #fff;
+      border: 1px solid rgba(15,61,46,.18);
+    }
+    .iconBtn img{
+      width: 20px; height: 20px;
+      display:block;
+    }
 
     /* Sections */
     section{ padding: 28px 0; }
@@ -266,6 +291,7 @@
       margin: 0;
       font-size: clamp(20px, 2.3vw, 28px);
       letter-spacing: -0.2px;
+      font-weight: 400;
     }
     .sectionHead p{
       margin:0;
@@ -288,6 +314,29 @@
     }
     .card h3{ margin: 0 0 8px; font-size: 1.05rem; }
     .card p{ margin: 0; color: var(--muted); }
+
+    .profilePhoto{
+      margin: 0 0 12px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(15,61,46,.10);
+      box-shadow: 0 10px 24px rgba(15,31,24,.06);
+    }
+    .profilePhoto img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .overLayout{
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+    }
+    .overLayout .profilePhoto{
+      flex: 0 0 140px;
+      width: 140px;
+      margin: 2px 0 0;
+    }
 
     .list{
       margin: 10px 0 0;
@@ -327,6 +376,48 @@
       color: var(--muted);
     }
 
+    /* Reviews */
+    .reviewsGrid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .stars{
+      color: var(--star);
+      letter-spacing: 1px;
+      font-size: 1.05rem;
+    }
+    .reviewCard{ grid-column: span 4; }
+    .reviewHead{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .reviewText{ color: var(--muted); margin: 0 0 10px; }
+    .reviewMeta{ color: var(--muted); font-size: .9rem; }
+    .reviewCard.is-hidden{ display:none; }
+    .reviewsControls{
+      display:flex; align-items:center; justify-content:flex-end;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    .reviewsCount{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,61,46,.12);
+      background: rgba(246,250,247,.65);
+      font-weight: 800;
+      color: var(--muted);
+    }
+    button.btn{ cursor:pointer; }
+    button.btn:disabled{
+      opacity: .55;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
     footer{
       padding: 24px 0 90px;
       color: var(--muted);
@@ -344,10 +435,10 @@
       display:none;
     }
     .mobileBar .row{
-      display:flex; gap:10px;
+      display:flex; gap:10px; flex-wrap: wrap;
     }
     .mobileBar a{
-      flex: 1;
+      flex: 1 1 calc(50% - 10px);
       padding: 12px 12px;
       border-radius: 14px;
       border: 1px solid rgba(15,61,46,.12);
@@ -366,7 +457,14 @@
       .heroGrid{ grid-template-columns: 1fr; }
       nav ul{ display:none; } /* keep it simple */
       .card{ grid-column: span 12; }
-      .heroBullets{ grid-template-columns: 1fr; }
+      .reviewCard{ grid-column: span 12; }
+    }
+    @media (max-width: 720px){
+      .overLayout{ flex-direction: column; }
+      .overLayout .profilePhoto{
+        width: 200px;
+        max-width: 100%;
+      }
     }
     @media (max-width: 560px){
       .cta .btn:not(.primary){ display:none; }
@@ -381,23 +479,22 @@
     - Telefoon: +31-6-00000000 en 06 00 00 00 00
     - E-mail: info@jasperklust.nl
     - WhatsApp: https://wa.me/31600000000
+    - Signal: https://signal.me/#p/+31600000000
   -->
 
   <header>
     <div class="wrap">
       <div class="nav" aria-label="Hoofdnavigatie">
         <div class="brand">
-          <span>Jasper Klust</span>
-          <small>Klusjesman Utrecht stad</small>
+          <img src="media/company_logo/logo_donkergroen_jasperklust.svg" alt="Jasper Klust" />
         </div>
 
         <nav aria-label="Secties">
           <ul>
-            <li><a href="#diensten">Diensten</a></li>
+            <li><a href="#diensten">Klusjes</a></li>
             <li><a href="#werkwijze">Werkwijze</a></li>
-            <li><a href="#tarief">Tarief</a></li>
-            <li><a href="#over">Over Jasper</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#over">Over mij</a></li>
+            <li><a href="#reviews">Reviews</a></li>
           </ul>
         </nav>
 
@@ -406,7 +503,7 @@
             <span class="dot" aria-hidden="true"></span> Bel
           </a>
           <a class="btn primary" href="#contact" aria-label="Ga naar contact">
-            Direct contact
+            Contact
           </a>
         </div>
       </div>
@@ -419,84 +516,53 @@
       <div class="wrap">
         <div class="heroGrid">
           <div class="heroCard">
-            <div class="kicker" role="note">
-              Rustig. Netjes. Transparant.
-            </div>
 
-            <h1>Klusjesman Utrecht voor montage, ophangen & kleine reparaties</h1>
-            <img src="Jasper.png">
+            <h1>Klusjesman gezocht?</h1>
             <p class="lead">
-              Jasper Klust helpt particulieren in <strong>Utrecht stad</strong> met kleine klusjes in huis.
-              Geen grote verbouwingen — wel duidelijke afspraken, meedenken en netjes opleveren.
+              Ik kom je graag helpen met vanalles! Neem contact op en vertel me over je klus, dan kan ik snel inschatten of ik iets voor je kan betekenen.
             </p>
 
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px;">
-              <a class="btn primary" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)&body=Hoi%20Jasper%2C%0A%0AIk%20heb%20hulp%20nodig%20bij%3A%0A-%20...%0A%0ALocatie%3A%20Utrecht%20(%20wijk%20...%20)%0AWanneer%3A%20...%0AFoto's%20(optioneel)%3A%20...%0A%0AGroet%2C%0A"
+              <a class="btn primary" href="https://signal.me/#p/+31600000000" target="_blank" rel="noopener" aria-label="Signal Jasper">
+                Signal
+              </a>
+              <a class="btn" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)&body=Hoi%20Jasper%2C%0A%0AIk%20heb%20hulp%20nodig%20bij%3A%0A-%20...%0A%0ALocatie%3A%20Utrecht%20(%20wijk%20...%20)%0AWanneer%3A%20...%0AFoto's%20(optioneel)%3A%20...%0A%0AGroet%2C%0A"
                  aria-label="Mail Jasper">
-                Mail (snelst)
+                Mail
               </a>
               <a class="btn" href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="WhatsApp Jasper">
                 WhatsApp
               </a>
-              <a class="btn" href="#werkwijze" aria-label="Lees de werkwijze">
-                Werkwijze
-              </a>
             </div>
 
-            <div class="heroBullets" aria-label="Kernpunten">
-              <div class="pill">
-                <div class="icon" aria-hidden="true">✓</div>
-                <div>
-                  <b>Helder & professioneel</b>
-                  <span>Transparante communicatie vooraf</span>
-                </div>
-              </div>
-
-              <div class="pill">
-                <div class="icon" aria-hidden="true">€</div>
-                <div>
-                  <b>€48,50 p/u (0% btw)</b>
-                  <span>Gewerkte tijd, reistijd = werktijd</span>
-                </div>
-              </div>
-
-              <div class="pill">
-                <div class="icon" aria-hidden="true">🚲</div>
-                <div>
-                  <b>Op de fiets in Utrecht</b>
-                  <span>Snel in de stad, duurzaam</span>
-                </div>
-              </div>
-
-              <div class="pill">
-                <div class="icon" aria-hidden="true">🕒</div>
-                <div>
-                  <b>Donderdag & vrijdag</b>
-                  <span>Avonden/weekenden in overleg</span>
-                </div>
-              </div>
+            <div class="goodToKnow" aria-label="Goed om te weten">
+              <h3>Goed om te weten</h3>
+              <ul>
+                <li>Je krijgt duidelijk over het plan en de kosten vooraf.</li>
+                <li>Ik werk in en rondom Utrecht. Ik kom altijd met mijn (bak)fiets!</li>
+                <li>Ik werk op donderdag en vrijdag. Avonden/weekenden in overleg.</li>
+              </ul>
             </div>
           </div>
 
           <aside class="sideTop">
-            <div class="priceTag" id="tarief" aria-label="Tarief en transparantie">
+            <div class="priceTag" aria-label="Tarief">
               <small style="color:var(--muted); font-weight:700;">Tarief</small>
               <div class="price">€48,50 <span style="font-size:16px; font-weight:800; color:var(--muted);">per uur</span></div>
               <p class="note">
-                0% btw. Je betaalt de <strong>gewerkte tijd</strong>. Jasper komt op de fiets.
-                <strong>Reistijd</strong> telt mee als werktijd — altijd vooraf helder afgestemd.
+                0% btw. Je betaalt de gewerkte tijd. Ik kom op de fiets en reistijd telt mee als werktijd.
               </p>
               <div style="height:10px"></div>
               <div class="mutedBox">
-                <strong>Sociaal in overleg:</strong> zit je financieel krap maar heb je hulp nodig?
-                Stuur gerust een bericht — dan kijken we samen naar een passende afspraak.
+                Zit je financieel krap maar heb je hulp nodig?
+                Aarzel niet om contact op te nemen, dan kijken we samen wat past!
               </div>
             </div>
 
             <div class="contactBox" id="contact">
-              <h3>Contact (Utrecht stad)</h3>
+              <h3>Contact</h3>
               <p class="note">
-                Beschrijf je klus + woonplaats. Foto’s mogen, hoeft niet.
+                Beschrijf je klus + woonplaats. Voeg foto’s toe als dat handig is.
                 Samen klussen of zelfstandig uitvoeren: beide kan.
               </p>
 
@@ -513,21 +579,24 @@
                 <a class="linkRow" role="listitem" href="tel:+31600000000">
                   <div>
                     <small>Telefoon</small>
-                    <strong>06 00 00 00 00</strong>
+                    <strong>06 12345678</strong>
                   </div>
                   <div class="right">Bel</div>
                 </a>
 
-                <a class="linkRow" role="listitem" href="https://wa.me/31600000000" target="_blank" rel="noopener">
+                <div class="linkRow" role="listitem">
                   <div>
-                    <small>WhatsApp</small>
+                    <small>Bericht</small>
                     <strong>Stuur een bericht</strong>
                   </div>
-                  <div class="right">App</div>
-                </a>
-
-                <div class="mutedBox">
-                  <strong>Werkgebied:</strong> Utrecht stad (buiten Utrecht in overleg).
+                  <div class="iconActions" aria-label="Bericht sturen via Signal of WhatsApp">
+                    <a class="iconBtn" href="https://signal.me/#p/+31600000000" target="_blank" rel="noopener" aria-label="Stuur een Signal-bericht">
+                      <img src="media/external/signal_icon.svg" alt="" aria-hidden="true" />
+                    </a>
+                    <a class="iconBtn" href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="Stuur een WhatsApp-bericht">
+                      <img src="media/external/whatsapp_icon.svg" alt="" aria-hidden="true" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -536,66 +605,34 @@
       </div>
     </section>
 
-    <!-- DIENSTEN -->
+    <!-- KLUSJES -->
     <section id="diensten">
       <div class="wrap">
         <div class="sectionHead">
           <div>
-            <h2>Diensten</h2>
+            <h2>Voorbeelden van klusjes</h2>
             <p>
-              Voor particulieren in Utrecht die hulp zoeken bij <strong>montage</strong>, <strong>ophangen</strong> en
-              <strong>kleine reparaties</strong>. Geen grote verbouwingen.
+              Een greep uit klussen die ik de afgelopen tijd heb gedaan.
             </p>
           </div>
         </div>
 
-        <div class="grid" role="list" aria-label="Dienstenlijst">
-          <div class="card" role="listitem">
-            <h3>Montage Utrecht</h3>
-            <p>Meubels monteren, kastjes stellen, losse onderdelen netjes afwerken.</p>
+        <div class="grid" role="list" aria-label="Voorbeelden van klusjes">
+          <div class="card" role="listitem" style="grid-column: span 12;">
             <ul class="list">
-              <li>Meubels monteren (IKEA e.d.)</li>
-              <li>Afwerking & kleine aanpassingen</li>
-              <li>Extra handjes bij klussen</li>
-            </ul>
-          </div>
-
-          <div class="card" role="listitem">
-            <h3>Ophangen lampen Utrecht</h3>
-            <p>Van plankje tot TV-beugel: veilig, waterpas en strak.</p>
-            <ul class="list">
-              <li>Plankjes ophangen</li>
-              <li>Lampen ophangen</li>
-              <li>TV-beugel / spiegel ophangen</li>
-            </ul>
-          </div>
-
-          <div class="card" role="listitem">
-            <h3>Kleine reparaties Utrecht</h3>
-            <p>Praktische hulp in huis: fixen wat los zit of niet lekker loopt.</p>
-            <ul class="list">
-              <li>Kleine reparaties</li>
-              <li>Hang- en sluitwerk</li>
-              <li>Afstelling deuren/ladekasten</li>
-            </ul>
-          </div>
-
-          <div class="card" role="listitem">
-            <h3>Hulp in huis</h3>
-            <p>Handige ondersteuning wanneer je net een extra paar handen kunt gebruiken.</p>
-            <ul class="list">
-              <li>Helpen met verhuizen</li>
-              <li>Keuken (deels) installeren in overleg</li>
-              <li>Samen klussen of zelfstandig</li>
+              <li>IKEA-kasten gemonteerd en deuren gesteld</li>
+              <li>Een badkamerventilatie vervangen</li>
+              <li>Een garderobe opgeknapt met weggewerkte kattenbak</li>
+              <li>TV-beugels en planken waterpas opgehangen</li>
+              <li>Lampen aangesloten en netjes afgewerkt</li>
+              <li>Spiegels, schilderijen en rails opgehangen</li>
+              <li>Klemmende deuren en lades afgesteld</li>
+              <li>Kleine reparaties aan hang- en sluitwerk</li>
+              <li>Basiselektra geinstalleerd</li>
             </ul>
           </div>
         </div>
 
-        <div style="height:14px"></div>
-        <div class="mutedBox">
-          Zoek je een <strong>klusbedrijf Utrecht</strong> voor klein werk? Stuur even wat details, dan laat Jasper snel weten
-          of het past en wat je kunt verwachten qua aanpak en kosten.
-        </div>
       </div>
     </section>
 
@@ -605,7 +642,6 @@
         <div class="sectionHead">
           <div>
             <h2>Werkwijze</h2>
-            <p>Duidelijke stappen, zodat je weet waar je aan toe bent — inclusief transparantie over kosten.</p>
           </div>
         </div>
 
@@ -615,10 +651,9 @@
               <div class="step">
                 <div class="stepNum" aria-hidden="true">1</div>
                 <div>
-                  <b>Neem contact op (mail/telefoon/WhatsApp)</b>
+                  <b>Stuur me een berichtje</b>
                   <span>
-                    Omschrijving van de klus, woonplaats (Utrecht), foto’s optioneel, en of je wil
-                    <strong>samen klussen</strong> of dat Jasper het zelfstandig uitvoert.
+                    Ik reageer zo snel mogelijk
                   </span>
                 </div>
               </div>
@@ -626,9 +661,9 @@
               <div class="step">
                 <div class="stepNum" aria-hidden="true">2</div>
                 <div>
-                  <b>Jasper neemt contact op</b>
+                  <b>Ik reageer en denk mee</b>
                   <span>
-                    Samen bepalen we of een schouw nodig is of dat we direct een afspraak plannen.
+                    We bepalen samen of een korte schouw nodig is of dat we direct een afspraak plannen.
                     Je krijgt vooraf duidelijkheid over aanpak en kosten.
                   </span>
                 </div>
@@ -637,9 +672,9 @@
               <div class="step">
                 <div class="stepNum" aria-hidden="true">3</div>
                 <div>
-                  <b>Uitvoering</b>
+                  <b>D-day, ik kom langs</b>
                   <span>
-                    Zorgvuldig werken, heldere communicatie, en het netjes achterlaten.
+                    Ik kan de klus zelfstandig uitvoeren of met je samen, afhankelijk van jouw voorkeur. Ik werk zorgvuldig, houd je op de hoogte en laat alles netjes achter.
                   </span>
                 </div>
               </div>
@@ -647,55 +682,15 @@
           </div>
 
           <div class="card" style="grid-column: span 5;">
-            <h3>Wat je vooraf kunt sturen</h3>
-            <p>Dan kan Jasper sneller inschatten wat nodig is.</p>
+            <h3>Het eerste bericht</h3>
+            <p>Vermeld ten minste deze dingen, zodat ik goed kan inschatten wat er nodig is.</p>
             <ul class="list">
               <li>Wat moet er precies gebeuren?</li>
               <li>Welke wijk in Utrecht?</li>
-              <li>Wanneer komt het uit (do/vr, of avond/weekend in overleg)?</li>
-              <li>Foto’s van de situatie (optioneel)</li>
-              <li>Materiaal al in huis, of nog nodig?</li>
+              <li>Wanneer wil je dat het af is?</li>
+              <li>Foto’s van de situatie, kan handig zijn</li>
+              <li>Heb je het benodigde materiaal al in huis, of nog nodig?</li>
             </ul>
-
-            <div style="height:12px"></div>
-            <a class="btn primary" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)&body=Hoi%20Jasper%2C%0A%0AIk%20heb%20hulp%20nodig%20bij%3A%0A-%20...%0A%0ALocatie%3A%20Utrecht%20(%20wijk%20...%20)%0AWanneer%3A%20...%0AFoto's%20(optioneel)%3A%20...%0A%0AGroet%2C%0A">
-              Stuur een klusaanvraag
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TRANSPARANTIE -->
-    <section aria-label="Transparantie en prijs">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>Transparant tarief</h2>
-            <p>Geen gedoe: duidelijke afspraken over tijd en kosten, vooraf besproken.</p>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div class="card">
-            <h3>Uurtarief</h3>
-            <p><strong>€48,50 per uur</strong> (0% btw).</p>
-            <ul class="list">
-              <li>Je betaalt de gewerkte tijd</li>
-              <li>Jasper komt op de fiets</li>
-              <li>Reistijd telt mee als werktijd</li>
-              <li>Vooraf transparant communiceren</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Sociaal in overleg</h3>
-            <p>
-              Als je financieel krap zit maar hulp nodig hebt, zijn andere afspraken in overleg mogelijk.
-              Stuur een kort bericht — zonder oordeel.
-            </p>
-            <div style="height:12px"></div>
-            <a class="btn" href="https://wa.me/31600000000" target="_blank" rel="noopener">WhatsApp hierover</a>
           </div>
         </div>
       </div>
@@ -706,34 +701,138 @@
       <div class="wrap">
         <div class="sectionHead">
           <div>
-            <h2>Over Jasper</h2>
-            <p>Persoonlijk, betrouwbaar en met een “duurzame” vibe.</p>
+            <h2>Over mij</h2>
           </div>
         </div>
 
         <div class="grid">
-          <div class="card" style="grid-column: span 7;">
-            <h3>Wie is Jasper Klust?</h3>
-            <p>
-              Jasper woont in Utrecht en werkt parttime bij Triodos. Daarnaast klust hij bij.
-              Hij is handig, denkt mee en werkt netjes — precies wat je wil als je iemand in huis haalt.
-            </p>
-            <ul class="list">
-              <li><strong>Locatie:</strong> Utrecht stad</li>
-              <li><strong>Werkgebied:</strong> Utrecht stad (buiten Utrecht in overleg)</li>
-              <li><strong>Beschikbaarheid:</strong> donderdag & vrijdag, avonden/weekenden in overleg</li>
-            </ul>
+          <div class="card" style="grid-column: span 12;">
+            <div class="overLayout">
+              <div class="profilePhoto">
+                <img src="media/images/Jasper.png" alt="Jasper Klust" loading="lazy" />
+              </div>
+              <div>
+                <h3>Over mij</h3>
+                <p>
+                  Ik woon in Utrecht en werk 3 dagen in de week bij Triodos. Naast mijn kantoorbaan ben ik graag met mijn handen bezig. Ik haal veel energie uit klussen en lekker in huis bezig zijn. Ik denk graag met je mee over je kluslijst en zorg dat het netjes en praktisch wordt uitgevoerd.
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" aria-label="Reviews">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Reviews</h2>
+            <p>Beoordeling en recente ervaringen van klanten.</p>
+          </div>
+          <a class="btn" href="https://maps.app.goo.gl/UHJ6vjBDjEnB8p9B9" target="_blank" rel="noopener">
+            Bekijk op Google
+          </a>
+        </div>
+
+        <div class="reviewsGrid" role="list" aria-label="Klantreviews">
+          <div class="card reviewCard" role="listitem" data-review-card>
+            <div class="reviewHead">
+              <strong>Thomas van Heyningen</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="reviewText">"Jasper heeft goed werk geleverd met het plaatsen van de tweedehands ikea keuken van marktplaats. Hij kwam met een uitgedacht plan, was attent en vriendelijk en iedere dag netjes op tijd. Zijn idee voor het verven van de witte frontjes in een mooie blauwe kleur was top en daar word iedere dag van genoten! Ik kan hem zeker aanbevelen!"</p>
+            <div class="reviewMeta">Utrecht Centrum · Februari 2026</div>
           </div>
 
-          <div class="card" style="grid-column: span 5;">
-            <h3>Past jouw klus?</h3>
-            <p>
-              Jasper richt zich op kleine en middelgrote klussen in huis. Denk aan montage, ophangen en praktische hulp.
-              Geen grote verbouwingen.
-            </p>
-            <div style="height:12px"></div>
-            <a class="btn primary" href="tel:+31600000000">Bel om te checken</a>
+          <div class="card reviewCard" role="listitem" data-review-card>
+            <div class="reviewHead">
+              <strong>Voornaam Achternaam</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="reviewText">"Review komt hier."</p>
+            <div class="reviewMeta">Stad en wijk · maand jaar</div>
           </div>
+
+          <div class="card reviewCard" role="listitem" data-review-card>
+            <div class="reviewHead">
+              <strong>Voornaam Achternaam</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="reviewText">"Review komt hier."</p>
+            <div class="reviewMeta">Stad en wijk · maand jaar</div>
+          </div>
+
+          <div class="card reviewCard" role="listitem" data-review-card>
+            <div class="reviewHead">
+              <strong>Voornaam Achternaam</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="reviewText">"Review komt hier."</p>
+            <div class="reviewMeta">Stad en wijk · maand jaar</div>
+          </div>
+
+          <div class="card reviewCard" role="listitem" data-review-card>
+            <div class="reviewHead">
+              <strong>Voornaam Achternaam</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="reviewText">"Review komt hier."</p>
+            <div class="reviewMeta">Stad en wijk · maand jaar</div>
+          </div>
+
+          <div class="card reviewCard" role="listitem" data-review-card>
+            <div class="reviewHead">
+              <strong>Voornaam Achternaam</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="reviewText">"Review komt hier."</p>
+            <div class="reviewMeta">Stad en wijk · maand jaar</div>
+          </div>
+
+          <div class="card reviewCard" role="listitem" data-review-card>
+            <div class="reviewHead">
+              <strong>Voornaam Achternaam</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="reviewText">"Review komt hier."</p>
+            <div class="reviewMeta">Stad en wijk · maand jaar</div>
+          </div>
+
+          <div class="card reviewCard" role="listitem" data-review-card>
+            <div class="reviewHead">
+              <strong>Voornaam Achternaam</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="reviewText">"Review komt hier."</p>
+            <div class="reviewMeta">Stad en wijk · maand jaar</div>
+          </div>
+
+          <div class="card reviewCard" role="listitem" data-review-card>
+            <div class="reviewHead">
+              <strong>Voornaam Achternaam</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="reviewText">"Review komt hier."</p>
+            <div class="reviewMeta">Stad en wijk · maand jaar</div>
+          </div>
+
+          <div class="card reviewCard" role="listitem" data-review-card>
+            <div class="reviewHead">
+              <strong>Voornaam Achternaam</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="reviewText">"Review komt hier."</p>
+            <div class="reviewMeta">Stad en wijk · maand jaar</div>
+          </div>
+        </div>
+
+        <div class="reviewsControls" role="group" aria-label="Reviews navigatie">
+          <button class="btn" type="button" data-review-prev>Vorige</button>
+          <span class="reviewsCount" data-review-page aria-live="polite">1 / 1</span>
+          <button class="btn" type="button" data-review-next>Volgende</button>
         </div>
       </div>
     </section>
@@ -744,10 +843,10 @@
         <div class="card" style="padding: 18px;">
           <h3 style="margin:0 0 8px;">Klusjesman in Utrecht nodig?</h3>
           <p style="margin:0; color: var(--muted);">
-            Jasper Klust is een <strong>klusjesman Utrecht</strong> voor particulieren die hulp zoeken bij
-            <strong>Montage Utrecht</strong>, <strong>kleine reparaties Utrecht</strong> en
-            <strong>ophangen lampen Utrecht</strong>. Zoek je een betrouwbaar <strong>klusbedrijf Utrecht</strong>
-            voor klein werk? Neem contact op en je krijgt vooraf duidelijkheid over aanpak en kosten.
+            Jasper Klust helpt mensen in Utrecht met kleine klusjes in huis, zoals montage, ophangen en
+            praktische reparaties. Denk aan kasten monteren, lampen en planken ophangen, of een deur die
+            klemt weer netjes afstellen. Je krijgt vooraf duidelijke afspraken over wat er gedaan wordt en
+            wat het kost. Zoek je een klusjesman in Utrecht voor klein werk? Stuur gerust een bericht.
           </p>
         </div>
       </div>
@@ -756,14 +855,8 @@
 
   <footer>
     <div class="wrap">
-      <div class="mutedBox">
-        <strong>Tip:</strong> bewaar deze pagina bij je favorieten.
-        Contact: <a href="mailto:info@jasperklust.nl"><strong>info@jasperklust.nl</strong></a> ·
-        <a href="tel:+31600000000"><strong>06 00 00 00 00</strong></a> ·
-        <a href="https://wa.me/31600000000" target="_blank" rel="noopener"><strong>WhatsApp</strong></a>
-      </div>
       <p style="margin: 14px 0 0; font-size:.95rem;">
-        © <span id="year"></span> Jasper Klust · Utrecht stad · Rustig, groen en professioneel.
+        © <span id="year"></span> Jasper Klust
       </p>
     </div>
   </footer>
@@ -774,8 +867,10 @@
       <a href="tel:+31600000000" aria-label="Bel Jasper">Bel</a>
       <a class="primary" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)" aria-label="Mail Jasper">Mail</a>
       <a href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="WhatsApp Jasper">App</a>
+      <a href="https://signal.me/#p/+31600000000" target="_blank" rel="noopener" aria-label="Signal Jasper">Signal</a>
     </div>
   </div>
+
 
   <script>
     // small nicety
@@ -791,6 +886,51 @@
     }, { rootMargin: "-20% 0px -65% 0px", threshold: [0.1, 0.25, 0.5] });
 
     sections.forEach(s => obs.observe(s));
+
+    // Manual reviews pagination
+    const reviewCards = Array.from(document.querySelectorAll("[data-review-card]"));
+    const reviewPrev = document.querySelector("[data-review-prev]");
+    const reviewNext = document.querySelector("[data-review-next]");
+    const reviewPage = document.querySelector("[data-review-page]");
+
+    if (reviewCards.length && reviewPrev && reviewNext && reviewPage) {
+      const getPerPage = () => window.matchMedia("(max-width: 920px)").matches ? 1 : 3;
+      const state = { page: 0, perPage: getPerPage() };
+
+      const renderReviews = () => {
+        state.perPage = getPerPage();
+        const totalPages = Math.max(1, Math.ceil(reviewCards.length / state.perPage));
+        if (state.page > totalPages - 1) state.page = totalPages - 1;
+        const start = state.page * state.perPage;
+        const end = start + state.perPage;
+
+        reviewCards.forEach((card, index) => {
+          card.classList.toggle("is-hidden", index < start || index >= end);
+        });
+
+        reviewPage.textContent = `${state.page + 1} / ${totalPages}`;
+        reviewPrev.disabled = state.page === 0;
+        reviewNext.disabled = state.page >= totalPages - 1;
+      };
+
+      reviewPrev.addEventListener("click", () => {
+        state.page = Math.max(0, state.page - 1);
+        renderReviews();
+      });
+
+      reviewNext.addEventListener("click", () => {
+        state.page = state.page + 1;
+        renderReviews();
+      });
+
+      window.addEventListener("resize", () => {
+        const nextPerPage = getPerPage();
+        if (nextPerPage !== state.perPage) renderReviews();
+      });
+
+      renderReviews();
+    }
+
   </script>
 </body>
 </html>
