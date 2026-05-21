@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0f3d2e" />
+  <meta name="theme-color" content="#f5f0e8" />
 
   <!-- SEO -->
   <title>Klusjesman Utrecht | Jasper Klust – montage, ophangen & kleine reparaties</title>
@@ -20,9 +20,6 @@
   <meta property="og:description" content="Montage, ophangen & kleine reparaties in Utrecht. €48,50 p/u (0% btw). Transparant en netjes." />
   <meta property="og:locale" content="nl_NL" />
   <meta property="og:url" content="https://www.jasperklust.nl/" />
-
-  <!-- Replace this with a real social image when you have one -->
-  <!-- <meta property="og:image" content="https://www.jasperklust.nl/og.jpg" /> -->
 
   <!-- JSON-LD (LocalBusiness) -->
   <script type="application/ld+json">
@@ -52,23 +49,7 @@
   </script>
 
   <style>
-    :root{
-      --bg: #f6faf7;
-      --card: #ffffff;
-      --text: #0f1f18;
-      --muted: #3a5a4e;
-      --brand: #0f3d2e;      /* deep green */
-      --brand2: #2f6b4f;     /* medium green */
-      --accent: #cfe7d8;     /* soft green */
-      --ring: rgba(15,61,46,.22);
-      --star: #e1a300;
-      --shadow: 0 12px 30px rgba(15, 31, 24, .08);
-      --radius: 18px;
-      --max: 1080px;
-      --scroll-offset: 84px;
-    }
-
-    @font-face{
+    @font-face {
       font-family: "Monofonto";
       src: url("media/fonts/monofonto rg.otf") format("opentype");
       font-weight: 400;
@@ -76,861 +57,490 @@
       font-display: swap;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color: var(--text);
-      background: radial-gradient(1200px 800px at 20% -10%, #e9f5ee, transparent 60%),
-                  radial-gradient(900px 700px at 90% 10%, #e3f2ea, transparent 55%),
-                  var(--bg);
-      line-height: 1.55;
+    :root {
+      --bg:      #f5f0e8;
+      --dark:    #1a1410;
+      --muted:   #6c5d52;
+      --accent:  #b5603a;
+      --surface: #ece7de;
+      --border:  rgba(26, 20, 16, .12);
+      --max:     1100px;
+      --scroll-offset: 72px;
     }
 
-    a{ color:inherit; text-decoration:none; }
-    a:focus-visible, button:focus-visible{
-      outline: 3px solid var(--ring);
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
       outline-offset: 3px;
-      border-radius: 10px;
+      border-radius: 4px;
     }
 
-    /* Layout */
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
-    header{
-      position: sticky; top:0; z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(246, 250, 247, .72);
-      border-bottom: 1px solid rgba(15,61,46,.08);
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+    section { scroll-margin-top: var(--scroll-offset); }
+
+    /* ---- Header ---- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(245, 240, 232, .88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
     }
-    section, #tarief, #contact{
-      scroll-margin-top: var(--scroll-offset);
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0; gap: 24px;
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 14px 0;
-      gap: 12px;
-    }
-    .brand{
-      display:flex; align-items:center;
-    }
-    .brand img{
-      height: 36px;
-      width: auto;
-      display:block;
-    }
-    nav ul{
-      display:flex; gap: 14px; list-style:none; padding:0; margin:0;
-      align-items:center;
-    }
-    nav a{
-      font-weight: 650;
+    .brand img { height: 30px; display: block; }
+    nav ul { display: flex; gap: 4px; list-style: none; }
+    nav a {
       color: var(--muted);
-      padding: 10px 10px;
-      border-radius: 12px;
-    }
-    nav a:hover{ background: rgba(15,61,46,.06); color: var(--text); }
-
-    .cta{
-      display:flex; gap:10px; align-items:center;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      border: 1px solid rgba(15,61,46,.14);
-      padding: 11px 14px;
-      border-radius: 999px;
-      background: var(--card);
-      box-shadow: 0 8px 18px rgba(15,31,24,.06);
-      font-weight: 750;
-      transition: transform .08s ease, box-shadow .08s ease, background .08s ease;
-      white-space: nowrap;
-    }
-    .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(15,31,24,.10); }
-    .btn.primary{
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      border-color: transparent;
-      color: #fff;
-      box-shadow: 0 14px 30px rgba(15,61,46,.22);
-    }
-    .btn.primary:hover{ box-shadow: 0 16px 34px rgba(15,61,46,.28); }
-    .btn .dot{
-      width:10px; height:10px; border-radius: 999px;
-      background: #7fe0b5;
-      box-shadow: 0 0 0 4px rgba(127,224,181,.18);
-    }
-
-    /* Hero */
-    .hero{
-      padding: 44px 0 20px;
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    .heroCard{
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(15,61,46,.10);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-    .kicker{
-      display:inline-flex; align-items:center; gap:8px;
       padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(207,231,216,.60);
-      border: 1px solid rgba(15,61,46,.10);
-      color: var(--brand);
-      font-weight: 750;
-      margin-bottom: 12px;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: color .12s;
     }
-    h1{
-      font-size: clamp(28px, 3.4vw, 44px);
-      line-height: 1.1;
-      margin: 8px 0 10px;
-      letter-spacing: -0.4px;
-      font-weight: 400;
+    nav a:hover { color: var(--dark); }
+    .btn-nav {
+      background: var(--dark); color: var(--bg);
+      padding: 9px 18px; border-radius: 100px;
+      font-size: 15px; font-weight: 600;
+      transition: opacity .12s; white-space: nowrap;
     }
-    h1, h2, h3, h4, h5, h6{
-      font-family: "Monofonto", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-weight: 400;
-    }
-    .lead{
-      color: var(--muted);
-      font-size: 1.06rem;
-      margin: 0 0 16px;
-      max-width: 58ch;
-    }
-    .goodToKnow{
-      margin-top: 14px;
-      padding: 12px;
-      border-radius: 14px;
-      background: #fff;
-      border: 1px solid rgba(15,61,46,.10);
-    }
-    .goodToKnow h3{
-      margin: 0 0 8px;
-      font-size: 1rem;
-    }
-    .goodToKnow ul{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-    .goodToKnow li{ margin: 6px 0; }
+    .btn-nav:hover { opacity: .8; }
 
-    /* Side card */
-    .sideTop{
-      display:flex; flex-direction:column; gap: 12px;
-      height: 100%;
+    /* ---- Buttons ---- */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--dark); color: var(--bg);
+      padding: 13px 24px; border-radius: 100px;
+      font-weight: 600; font-size: 16px;
+      transition: opacity .12s;
     }
-    .priceTag{
-      background: linear-gradient(135deg, rgba(15,61,46,.06), rgba(47,107,79,.10));
-      border: 1px solid rgba(15,61,46,.14);
-      border-radius: var(--radius);
-      padding: 16px;
+    .btn-primary:hover { opacity: .8; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid var(--border);
+      color: var(--dark); padding: 13px 24px;
+      border-radius: 100px; font-size: 16px; font-weight: 500;
+      transition: border-color .12s;
     }
-    .priceTag .price{
-      font-size: 28px; font-weight: 900; letter-spacing: -0.2px;
-      margin: 2px 0 2px;
-      color: var(--brand);
-    }
-    .note{
-      margin: 0;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-    .contactBox{
-      background: #fff;
-      border: 1px solid rgba(15,61,46,.10);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: 0 10px 24px rgba(15,31,24,.06);
-    }
-    .contactBox h3{ margin:0 0 8px; font-size: 1.05rem; }
-    .contactLinks{
-      display:flex; flex-direction:column; gap:10px;
-      margin-top: 10px;
-    }
-    .linkRow{
-      display:flex; align-items:center; justify-content:space-between;
-      gap: 10px;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(15,61,46,.10);
-      background: rgba(246,250,247,.65);
-    }
-    .linkRow small{ color: var(--muted); display:block; }
-    .linkRow .right{ font-weight: 800; color: var(--brand); }
-    .iconActions{
-      display:flex; gap:8px; align-items:center;
-    }
-    .iconBtn{
-      width: 34px; height: 34px;
-      border-radius: 999px;
-      display:grid; place-items:center;
-      background: #fff;
-      border: 1px solid rgba(15,61,46,.18);
-    }
-    .iconBtn img{
-      width: 20px; height: 20px;
-      display:block;
-    }
+    .btn-ghost:hover { border-color: var(--dark); }
 
-    /* Sections */
-    section{ padding: 28px 0; }
-    .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap: 12px;
-      margin-bottom: 14px;
+    /* ---- Shared ---- */
+    .label {
+      display: block;
+      font-size: .82rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 18px;
     }
-    .sectionHead h2{
-      margin: 0;
-      font-size: clamp(20px, 2.3vw, 28px);
-      letter-spacing: -0.2px;
-      font-weight: 400;
+    .s-head {
+      font-family: "Monofonto", ui-monospace, monospace;
+      font-size: clamp(22px, 2.6vw, 38px);
+      font-weight: 400; line-height: 1.15;
+      letter-spacing: -.25px; margin-bottom: 20px;
     }
-    .sectionHead p{
-      margin:0;
-      color: var(--muted);
-      max-width: 62ch;
-    }
+    .divider { border: none; border-top: 1px solid var(--border); }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
+    /* ---- Hero ---- */
+    .hero { padding: 80px 0 64px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
     }
-    .card{
-      grid-column: span 6;
-      background: rgba(255,255,255,.82);
-      border: 1px solid rgba(15,61,46,.10);
-      border-radius: var(--radius);
-      box-shadow: 0 10px 26px rgba(15,31,24,.06);
-      padding: 18px;
+    .hero h1 {
+      font-family: "Monofonto", ui-monospace, monospace;
+      font-size: clamp(40px, 5.2vw, 72px);
+      line-height: 1.05; letter-spacing: -.5px;
+      font-weight: 400; margin-bottom: 24px;
     }
-    .card h3{ margin: 0 0 8px; font-size: 1.05rem; }
-    .card p{ margin: 0; color: var(--muted); }
+    .hero-lead {
+      color: var(--muted); font-size: 1.1rem;
+      line-height: 1.72; max-width: 46ch;
+      margin-bottom: 16px;
+    }
+    .price-pill {
+      display: inline-block; font-size: .96rem;
+      color: var(--muted); margin-bottom: 32px;
+      padding: 10px 18px; background: var(--surface);
+      border-radius: 100px;
+    }
+    .price-pill strong { color: var(--dark); }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    .profilePhoto{
-      margin: 0 0 12px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid rgba(15,61,46,.10);
-      box-shadow: 0 10px 24px rgba(15,31,24,.06);
+    .hero-photo {
+      border-radius: 24px; overflow: hidden;
+      aspect-ratio: 4/5;
     }
-    .profilePhoto img{
-      width: 100%;
-      height: auto;
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
       display: block;
     }
-    .overLayout{
-      display:flex;
-      gap: 14px;
-      align-items:flex-start;
+
+    /* ---- Klusjes ---- */
+    #diensten { padding: 72px 0; }
+    .klusjes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 80px; align-items: start;
     }
-    .overLayout .profilePhoto{
-      flex: 0 0 140px;
-      width: 140px;
-      margin: 2px 0 0;
+    .klusjes-sub { color: var(--muted); line-height: 1.72; }
+    .klusjes-list { list-style: none; }
+    .klusjes-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--dark); font-size: 1rem;
+    }
+    .klusjes-list li:first-child { border-top: 1px solid var(--border); }
+    .klusjes-note { margin-top: 20px; font-size: .92rem; color: var(--muted); }
+
+    /* ---- Over ---- */
+    #over { padding: 72px 0; }
+    .over-content { max-width: 660px; }
+    .over-content p { color: var(--muted); line-height: 1.75; }
+    .over-content p + p { margin-top: 16px; }
+    .over-note {
+      margin-top: 24px; padding: 16px 20px;
+      background: var(--surface); border-radius: 12px;
+      font-size: .95rem; color: var(--muted);
     }
 
-    .list{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
+    /* ---- Reviews ---- */
+    #reviews { padding: 72px 0; }
+    .reviews-head {
+      display: flex; align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px; gap: 20px;
     }
-    .list li{ margin: 6px 0; }
+    .reviews-head .s-head { margin-bottom: 0; }
+    .google-link {
+      color: var(--muted); font-size: .92rem;
+      border-bottom: 1px solid var(--border); padding-bottom: 2px;
+      transition: color .12s, border-color .12s; white-space: nowrap;
+    }
+    .google-link:hover { color: var(--dark); border-color: var(--dark); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review {
+      padding: 28px; background: var(--surface);
+      border-radius: 18px;
+    }
+    .review-stars {
+      color: var(--accent); font-size: .95rem;
+      letter-spacing: 2px; margin-bottom: 16px;
+    }
+    .review-text { color: var(--dark); line-height: 1.65; font-size: .97rem; margin-bottom: 20px; }
+    .review-meta { font-size: .87rem; color: var(--muted); }
+    .review-meta strong { color: var(--dark); display: block; margin-bottom: 2px; }
 
-    .steps{
-      display:grid;
-      gap: 12px;
+    /* ---- Contact ---- */
+    #contact { padding: 64px 0 80px; }
+    .contact-inner {
+      background: var(--dark); border-radius: 28px;
+      padding: 60px 56px;
     }
-    .step{
-      display:flex; gap:12px;
-      background: #fff;
-      border: 1px solid rgba(15,61,46,.10);
-      border-radius: var(--radius);
-      padding: 14px;
+    .contact-inner .s-head { color: var(--bg); margin-bottom: 14px; }
+    .contact-sub {
+      color: rgba(245, 240, 232, .6);
+      margin-bottom: 36px; max-width: 46ch; line-height: 1.65;
     }
-    .stepNum{
-      width: 34px; height:34px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      color:#fff;
-      display:grid; place-items:center;
-      font-weight: 900;
-      flex: 0 0 auto;
+    .contact-links { display: flex; flex-direction: column; gap: 12px; max-width: 420px; }
+    .contact-link {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+      padding: 16px 20px; border-radius: 14px;
+      border: 1px solid rgba(245, 240, 232, .14);
+      color: var(--bg); transition: background .12s;
     }
-    .step b{ display:block; margin-bottom: 4px; }
-    .step span{ color: var(--muted); }
-
-    .mutedBox{
-      background: rgba(207,231,216,.35);
-      border: 1px dashed rgba(15,61,46,.22);
-      border-radius: var(--radius);
-      padding: 14px;
-      color: var(--muted);
+    .contact-link:hover { background: rgba(245, 240, 232, .07); }
+    .contact-link-label {
+      font-size: .83rem; color: rgba(245, 240, 232, .5);
+      display: block; margin-bottom: 3px;
     }
-
-    /* Reviews */
-    .reviewsGrid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
+    .contact-link strong { font-size: 1rem; }
+    .contact-link-arrow { color: rgba(245, 240, 232, .5); flex-shrink: 0; }
+    .icon-row { display: flex; gap: 8px; flex-shrink: 0; }
+    .icon-btn {
+      width: 36px; height: 36px; border-radius: 100%;
+      border: 1px solid rgba(245, 240, 232, .18);
+      display: grid; place-items: center;
+      transition: background .12s;
     }
-    .stars{
-      color: var(--star);
-      letter-spacing: 1px;
-      font-size: 1.05rem;
-    }
-    .reviewCard{ grid-column: span 4; }
-    .reviewHead{
-      display:flex; align-items:center; justify-content:space-between;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-    .reviewText{ color: var(--muted); margin: 0 0 10px; }
-    .reviewMeta{ color: var(--muted); font-size: .9rem; }
-    .reviewCard.is-hidden{ display:none; }
-    .reviewsControls{
-      display:flex; align-items:center; justify-content:flex-end;
-      gap: 10px;
-      margin-top: 12px;
-      flex-wrap: wrap;
-    }
-    .reviewsCount{
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(15,61,46,.12);
-      background: rgba(246,250,247,.65);
-      font-weight: 800;
-      color: var(--muted);
-    }
-    button.btn{ cursor:pointer; }
-    button.btn:disabled{
-      opacity: .55;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
+    .icon-btn:hover { background: rgba(245, 240, 232, .08); }
+    .icon-btn img {
+      width: 20px; height: 20px; display: block;
+      filter: brightness(0) invert(1);
     }
 
-    footer{
-      padding: 24px 0 90px;
-      color: var(--muted);
-    }
+    /* ---- SEO ---- */
+    .seo-block { padding: 0 0 48px; }
+    .seo-block p { color: var(--muted); font-size: .9rem; max-width: 70ch; line-height: 1.72; }
 
-    /* Mobile sticky bar */
-    .mobileBar{
-      position: fixed;
+    /* ---- Footer ---- */
+    footer { padding: 24px 0 80px; color: var(--muted); font-size: .9rem; }
+
+    /* ---- Mobile bar ---- */
+    .mobile-bar {
+      display: none; position: fixed;
       left: 0; right: 0; bottom: 0;
-      background: rgba(255,255,255,.86);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(15,61,46,.10);
-      padding: 10px 12px;
-      z-index: 60;
-      display:none;
+      background: rgba(245, 240, 232, .92);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border);
+      padding: 10px 16px; z-index: 60;
     }
-    .mobileBar .row{
-      display:flex; gap:10px; flex-wrap: wrap;
+    .mobile-bar-row { display: flex; gap: 10px; }
+    .mobile-bar-btn {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 13px 8px; border-radius: 12px;
+      font-weight: 600; font-size: 15px;
+      border: 1.5px solid var(--border);
+      color: var(--dark); transition: background .12s;
     }
-    .mobileBar a{
-      flex: 1 1 calc(50% - 10px);
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(15,61,46,.12);
-      background: #fff;
-      font-weight: 850;
-      display:flex; align-items:center; justify-content:center; gap:10px;
-    }
-    .mobileBar a.primary{
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      color:#fff;
+    .mobile-bar-btn.primary {
+      background: var(--dark); color: var(--bg);
       border-color: transparent;
     }
 
-    /* Responsive */
-    @media (max-width: 920px){
-      .heroGrid{ grid-template-columns: 1fr; }
-      nav ul{ display:none; } /* keep it simple */
-      .card{ grid-column: span 12; }
-      .reviewCard{ grid-column: span 12; }
+    /* ---- Responsive ---- */
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-photo { aspect-ratio: 1/1; max-height: 360px; }
+      .klusjes-grid { grid-template-columns: 1fr; gap: 36px; }
+      .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
+      nav ul { display: none; }
+      .contact-inner { padding: 40px 32px; }
     }
-    @media (max-width: 720px){
-      .overLayout{ flex-direction: column; }
-      .overLayout .profilePhoto{
-        width: 200px;
-        max-width: 100%;
-      }
-    }
-    @media (max-width: 560px){
-      .cta .btn:not(.primary){ display:none; }
-      .mobileBar{ display:block; }
+    @media (max-width: 560px) {
+      .wrap { padding: 0 20px; }
+      .mobile-bar { display: block; }
+      .btn-nav { display: none; }
+      .hero { padding: 48px 0 40px; }
+      #diensten, #over, #reviews { padding: 48px 0; }
+      #contact { padding: 40px 0 60px; }
+      .contact-inner { border-radius: 20px; padding: 32px 24px; }
     }
   </style>
 </head>
-
 <body>
-  <!--
-    ⚠️ VERVANG CONTACTGEGEVENS:
-    - Telefoon: +31-6-00000000 en 06 00 00 00 00
-    - E-mail: info@jasperklust.nl
-    - WhatsApp: https://wa.me/31600000000
-    - Signal: https://signal.me/#p/+31600000000
-  -->
 
   <header>
     <div class="wrap">
-      <div class="nav" aria-label="Hoofdnavigatie">
+      <div class="nav">
         <div class="brand">
-          <img src="media/company_logo/logo_donkergroen_jasperklust.svg" alt="Jasper Klust" />
+          <img src="media/company_logo/logo_zwart_jasperklust.svg" alt="Jasper Klust" />
         </div>
-
-        <nav aria-label="Secties">
+        <nav aria-label="Navigatie">
           <ul>
             <li><a href="#diensten">Klusjes</a></li>
-            <li><a href="#werkwijze">Werkwijze</a></li>
-            <li><a href="#over">Over mij</a></li>
+            <li><a href="#over">Over</a></li>
             <li><a href="#reviews">Reviews</a></li>
           </ul>
         </nav>
-
-        <div class="cta">
-          <a class="btn" href="tel:+31600000000" aria-label="Bel Jasper">
-            <span class="dot" aria-hidden="true"></span> Bel
-          </a>
-          <a class="btn primary" href="#contact" aria-label="Ga naar contact">
-            Contact
-          </a>
-        </div>
+        <a class="btn-nav" href="#contact">Contact</a>
       </div>
     </div>
   </header>
 
   <main>
+
     <!-- HERO -->
     <section class="hero">
       <div class="wrap">
-        <div class="heroGrid">
-          <div class="heroCard">
-
-            <h1>Klusjesman gezocht?</h1>
-            <p class="lead">
-              Ik kom je graag helpen met vanalles! Neem contact op en vertel me over je klus, dan kan ik snel inschatten of ik iets voor je kan betekenen.
+        <div class="hero-grid">
+          <div>
+            <h1>Klusjesman<br>in Utrecht.</h1>
+            <p class="hero-lead">
+              Ik help mensen in Utrecht met kleine klussen thuis. Persoonlijk, transparant en netjes.
             </p>
-
-            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px;">
-              <a class="btn primary" href="https://signal.me/#p/+31600000000" target="_blank" rel="noopener" aria-label="Signal Jasper">
-                Signal
-              </a>
-              <a class="btn" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)&body=Hoi%20Jasper%2C%0A%0AIk%20heb%20hulp%20nodig%20bij%3A%0A-%20...%0A%0ALocatie%3A%20Utrecht%20(%20wijk%20...%20)%0AWanneer%3A%20...%0AFoto's%20(optioneel)%3A%20...%0A%0AGroet%2C%0A"
-                 aria-label="Mail Jasper">
-                Mail
-              </a>
-              <a class="btn" href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="WhatsApp Jasper">
-                WhatsApp
-              </a>
+            <div class="price-pill">
+              <strong>€48,50 per uur</strong> · 0% btw · Ik kom op de fiets
             </div>
-
-            <div class="goodToKnow" aria-label="Goed om te weten">
-              <h3>Goed om te weten</h3>
-              <ul>
-                <li>Je krijgt duidelijk over het plan en de kosten vooraf.</li>
-                <li>Ik werk in en rondom Utrecht. Ik kom altijd met mijn (bak)fiets!</li>
-                <li>Ik werk op donderdag en vrijdag. Avonden/weekenden in overleg.</li>
-              </ul>
+            <div class="hero-actions">
+              <a class="btn-primary" href="https://signal.me/#p/+31600000000" target="_blank" rel="noopener">Signal</a>
+              <a class="btn-ghost" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)&body=Hoi%20Jasper%2C%0A%0AIk%20heb%20hulp%20nodig%20bij%3A%0A-%20...%0A%0ALocatie%3A%20Utrecht%20(%20wijk%20...%20)%0AWanneer%3A%20...%0AFoto's%20(optioneel)%3A%20...%0A%0AGroet%2C%0A" aria-label="Mail Jasper">Mail</a>
+              <a class="btn-ghost" href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="WhatsApp Jasper">WhatsApp</a>
             </div>
           </div>
-
-          <aside class="sideTop">
-            <div class="priceTag" aria-label="Tarief">
-              <small style="color:var(--muted); font-weight:700;">Tarief</small>
-              <div class="price">€48,50 <span style="font-size:16px; font-weight:800; color:var(--muted);">per uur</span></div>
-              <p class="note">
-                0% btw. Je betaalt de gewerkte tijd. Ik kom op de fiets en reistijd telt mee als werktijd.
-              </p>
-              <div style="height:10px"></div>
-              <div class="mutedBox">
-                Zit je financieel krap maar heb je hulp nodig?
-                Aarzel niet om contact op te nemen, dan kijken we samen wat past!
-              </div>
-            </div>
-
-            <div class="contactBox" id="contact">
-              <h3>Contact</h3>
-              <p class="note">
-                Beschrijf je klus + woonplaats. Voeg foto’s toe als dat handig is.
-                Samen klussen of zelfstandig uitvoeren: beide kan.
-              </p>
-
-              <div class="contactLinks" role="list">
-                <a class="linkRow" role="listitem"
-                   href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)&body=Hoi%20Jasper%2C%0A%0AIk%20heb%20hulp%20nodig%20bij%3A%0A-%20...%0A%0ALocatie%3A%20Utrecht%20(%20wijk%20...%20)%0AWanneer%3A%20...%0AFoto's%20(optioneel)%3A%20...%0A%0AGroet%2C%0A">
-                  <div>
-                    <small>E-mail</small>
-                    <strong>info@jasperklust.nl</strong>
-                  </div>
-                  <div class="right">Mail</div>
-                </a>
-
-                <a class="linkRow" role="listitem" href="tel:+31600000000">
-                  <div>
-                    <small>Telefoon</small>
-                    <strong>06 12345678</strong>
-                  </div>
-                  <div class="right">Bel</div>
-                </a>
-
-                <div class="linkRow" role="listitem">
-                  <div>
-                    <small>Bericht</small>
-                    <strong>Stuur een bericht</strong>
-                  </div>
-                  <div class="iconActions" aria-label="Bericht sturen via Signal of WhatsApp">
-                    <a class="iconBtn" href="https://signal.me/#p/+31600000000" target="_blank" rel="noopener" aria-label="Stuur een Signal-bericht">
-                      <img src="media/external/signal_icon.svg" alt="" aria-hidden="true" />
-                    </a>
-                    <a class="iconBtn" href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="Stuur een WhatsApp-bericht">
-                      <img src="media/external/whatsapp_icon.svg" alt="" aria-hidden="true" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
+          <div class="hero-photo">
+            <img src="media/images/Jasper.png" alt="Jasper Klust, klusjesman in Utrecht" />
+          </div>
         </div>
       </div>
     </section>
+
+    <hr class="divider" />
 
     <!-- KLUSJES -->
     <section id="diensten">
       <div class="wrap">
-        <div class="sectionHead">
+        <div class="klusjes-grid">
           <div>
-            <h2>Voorbeelden van klusjes</h2>
-            <p>
-              Een greep uit klussen die ik de afgelopen tijd heb gedaan.
+            <span class="label">Wat ik doe</span>
+            <h2 class="s-head">Klussen in huis,<br>groot en klein.</h2>
+            <p class="klusjes-sub">
+              Ik werk in en rondom Utrecht. Op donderdag en vrijdag — avonden en weekenden in overleg.
             </p>
           </div>
-        </div>
-
-        <div class="grid" role="list" aria-label="Voorbeelden van klusjes">
-          <div class="card" role="listitem" style="grid-column: span 12;">
-            <ul class="list">
-              <li>IKEA-kasten gemonteerd en deuren gesteld</li>
-              <li>Een badkamerventilatie vervangen</li>
-              <li>Een garderobe opgeknapt met weggewerkte kattenbak</li>
-              <li>TV-beugels en planken waterpas opgehangen</li>
-              <li>Lampen aangesloten en netjes afgewerkt</li>
-              <li>Spiegels, schilderijen en rails opgehangen</li>
-              <li>Klemmende deuren en lades afgesteld</li>
-              <li>Kleine reparaties aan hang- en sluitwerk</li>
-              <li>Basiselektra geinstalleerd</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- WERKWIJZE -->
-    <section id="werkwijze">
-      <div class="wrap">
-        <div class="sectionHead">
           <div>
-            <h2>Werkwijze</h2>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div class="card" style="grid-column: span 7;">
-            <div class="steps" aria-label="Stappenplan">
-              <div class="step">
-                <div class="stepNum" aria-hidden="true">1</div>
-                <div>
-                  <b>Stuur me een berichtje</b>
-                  <span>
-                    Ik reageer zo snel mogelijk
-                  </span>
-                </div>
-              </div>
-
-              <div class="step">
-                <div class="stepNum" aria-hidden="true">2</div>
-                <div>
-                  <b>Ik reageer en denk mee</b>
-                  <span>
-                    We bepalen samen of een korte schouw nodig is of dat we direct een afspraak plannen.
-                    Je krijgt vooraf duidelijkheid over aanpak en kosten.
-                  </span>
-                </div>
-              </div>
-
-              <div class="step">
-                <div class="stepNum" aria-hidden="true">3</div>
-                <div>
-                  <b>D-day, ik kom langs</b>
-                  <span>
-                    Ik kan de klus zelfstandig uitvoeren of met je samen, afhankelijk van jouw voorkeur. Ik werk zorgvuldig, houd je op de hoogte en laat alles netjes achter.
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card" style="grid-column: span 5;">
-            <h3>Het eerste bericht</h3>
-            <p>Vermeld ten minste deze dingen, zodat ik goed kan inschatten wat er nodig is.</p>
-            <ul class="list">
-              <li>Wat moet er precies gebeuren?</li>
-              <li>Welke wijk in Utrecht?</li>
-              <li>Wanneer wil je dat het af is?</li>
-              <li>Foto’s van de situatie, kan handig zijn</li>
-              <li>Heb je het benodigde materiaal al in huis, of nog nodig?</li>
+            <ul class="klusjes-list">
+              <li>IKEA-kasten monteren en deuren stellen</li>
+              <li>Badkamerventilatie vervangen</li>
+              <li>TV-beugels en planken ophangen</li>
+              <li>Lampen aansluiten en netjes afwerken</li>
+              <li>Spiegels, schilderijen en rails ophangen</li>
+              <li>Klemmende deuren en lades afstellen</li>
+              <li>Kleine reparaties aan hang- en sluitwerk</li>
+              <li>Basiselektra installeren</li>
             </ul>
+            <p class="klusjes-note">Iets anders nodig? Stuur me een bericht, dan kijk ik wat ik kan.</p>
           </div>
         </div>
       </div>
     </section>
+
+    <hr class="divider" />
 
     <!-- OVER -->
     <section id="over">
       <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>Over mij</h2>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div class="card" style="grid-column: span 12;">
-            <div class="overLayout">
-              <div class="profilePhoto">
-                <img src="media/images/Jasper.png" alt="Jasper Klust" loading="lazy" />
-              </div>
-              <div>
-                <h3>Over mij</h3>
-                <p>
-                  Ik woon in Utrecht en werk 3 dagen in de week bij Triodos. Naast mijn kantoorbaan ben ik graag met mijn handen bezig. Ik haal veel energie uit klussen en lekker in huis bezig zijn. Ik denk graag met je mee over je kluslijst en zorg dat het netjes en praktisch wordt uitgevoerd.
-
-                </p>
-              </div>
-            </div>
+        <span class="label">Over mij</span>
+        <h2 class="s-head">Jasper Klust</h2>
+        <div class="over-content">
+          <p>
+            Ik woon in Utrecht en werk 3 dagen in de week bij Triodos. Naast mijn kantoorbaan ben ik graag met mijn handen bezig — ik haal veel energie uit klussen en lekker in huis bezig zijn.
+          </p>
+          <p>
+            Ik denk graag met je mee over je kluslijst en zorg dat het netjes en praktisch wordt uitgevoerd. Je krijgt van tevoren duidelijkheid over wat ik ga doen en wat het kost.
+          </p>
+          <div class="over-note">
+            Zit je financieel krap maar heb je hulp nodig? Aarzel niet om contact op te nemen — dan kijken we samen wat past.
           </div>
         </div>
       </div>
     </section>
+
+    <hr class="divider" />
 
     <!-- REVIEWS -->
-    <section id="reviews" aria-label="Reviews">
+    <section id="reviews">
       <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>Reviews</h2>
-            <p>Beoordeling en recente ervaringen van klanten.</p>
-          </div>
-          <a class="btn" href="https://maps.app.goo.gl/UHJ6vjBDjEnB8p9B9" target="_blank" rel="noopener">
-            Bekijk op Google
-          </a>
+        <div class="reviews-head">
+          <h2 class="s-head">Reviews</h2>
+          <a class="google-link" href="https://maps.app.goo.gl/UHJ6vjBDjEnB8p9B9" target="_blank" rel="noopener">Bekijk op Google →</a>
         </div>
-
-        <div class="reviewsGrid" role="list" aria-label="Klantreviews">
-          <div class="card reviewCard" role="listitem" data-review-card>
-            <div class="reviewHead">
+        <div class="reviews-grid">
+          <div class="review">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Jasper heeft goed werk geleverd met het plaatsen van de tweedehands ikea keuken van marktplaats. Hij kwam met een uitgedacht plan, was attent en vriendelijk en iedere dag netjes op tijd. Zijn idee voor het verven van de witte frontjes in een mooie blauwe kleur was top en daar word iedere dag van genoten! Ik kan hem zeker aanbevelen!"</p>
+            <div class="review-meta">
               <strong>Thomas van Heyningen</strong>
-              <span class="stars" aria-hidden="true">★★★★★</span>
+              Utrecht Centrum · Februari 2026
             </div>
-            <p class="reviewText">"Jasper heeft goed werk geleverd met het plaatsen van de tweedehands ikea keuken van marktplaats. Hij kwam met een uitgedacht plan, was attent en vriendelijk en iedere dag netjes op tijd. Zijn idee voor het verven van de witte frontjes in een mooie blauwe kleur was top en daar word iedere dag van genoten! Ik kan hem zeker aanbevelen!"</p>
-            <div class="reviewMeta">Utrecht Centrum · Februari 2026</div>
           </div>
-
-          <div class="card reviewCard" role="listitem" data-review-card>
-            <div class="reviewHead">
+          <div class="review">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Review komt hier."</p>
+            <div class="review-meta">
               <strong>Voornaam Achternaam</strong>
-              <span class="stars" aria-hidden="true">★★★★★</span>
+              Stad en wijk · maand jaar
             </div>
-            <p class="reviewText">"Review komt hier."</p>
-            <div class="reviewMeta">Stad en wijk · maand jaar</div>
           </div>
-
-          <div class="card reviewCard" role="listitem" data-review-card>
-            <div class="reviewHead">
+          <div class="review">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Review komt hier."</p>
+            <div class="review-meta">
               <strong>Voornaam Achternaam</strong>
-              <span class="stars" aria-hidden="true">★★★★★</span>
+              Stad en wijk · maand jaar
             </div>
-            <p class="reviewText">"Review komt hier."</p>
-            <div class="reviewMeta">Stad en wijk · maand jaar</div>
           </div>
-
-          <div class="card reviewCard" role="listitem" data-review-card>
-            <div class="reviewHead">
-              <strong>Voornaam Achternaam</strong>
-              <span class="stars" aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="reviewText">"Review komt hier."</p>
-            <div class="reviewMeta">Stad en wijk · maand jaar</div>
-          </div>
-
-          <div class="card reviewCard" role="listitem" data-review-card>
-            <div class="reviewHead">
-              <strong>Voornaam Achternaam</strong>
-              <span class="stars" aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="reviewText">"Review komt hier."</p>
-            <div class="reviewMeta">Stad en wijk · maand jaar</div>
-          </div>
-
-          <div class="card reviewCard" role="listitem" data-review-card>
-            <div class="reviewHead">
-              <strong>Voornaam Achternaam</strong>
-              <span class="stars" aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="reviewText">"Review komt hier."</p>
-            <div class="reviewMeta">Stad en wijk · maand jaar</div>
-          </div>
-
-          <div class="card reviewCard" role="listitem" data-review-card>
-            <div class="reviewHead">
-              <strong>Voornaam Achternaam</strong>
-              <span class="stars" aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="reviewText">"Review komt hier."</p>
-            <div class="reviewMeta">Stad en wijk · maand jaar</div>
-          </div>
-
-          <div class="card reviewCard" role="listitem" data-review-card>
-            <div class="reviewHead">
-              <strong>Voornaam Achternaam</strong>
-              <span class="stars" aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="reviewText">"Review komt hier."</p>
-            <div class="reviewMeta">Stad en wijk · maand jaar</div>
-          </div>
-
-          <div class="card reviewCard" role="listitem" data-review-card>
-            <div class="reviewHead">
-              <strong>Voornaam Achternaam</strong>
-              <span class="stars" aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="reviewText">"Review komt hier."</p>
-            <div class="reviewMeta">Stad en wijk · maand jaar</div>
-          </div>
-
-          <div class="card reviewCard" role="listitem" data-review-card>
-            <div class="reviewHead">
-              <strong>Voornaam Achternaam</strong>
-              <span class="stars" aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="reviewText">"Review komt hier."</p>
-            <div class="reviewMeta">Stad en wijk · maand jaar</div>
-          </div>
-        </div>
-
-        <div class="reviewsControls" role="group" aria-label="Reviews navigatie">
-          <button class="btn" type="button" data-review-prev>Vorige</button>
-          <span class="reviewsCount" data-review-page aria-live="polite">1 / 1</span>
-          <button class="btn" type="button" data-review-next>Volgende</button>
         </div>
       </div>
     </section>
 
-    <!-- SEO BLOK -->
-    <section aria-label="SEO tekst">
+    <!-- CONTACT -->
+    <section id="contact">
       <div class="wrap">
-        <div class="card" style="padding: 18px;">
-          <h3 style="margin:0 0 8px;">Klusjesman in Utrecht nodig?</h3>
-          <p style="margin:0; color: var(--muted);">
-            Jasper Klust helpt mensen in Utrecht met kleine klusjes in huis, zoals montage, ophangen en
-            praktische reparaties. Denk aan kasten monteren, lampen en planken ophangen, of een deur die
-            klemt weer netjes afstellen. Je krijgt vooraf duidelijke afspraken over wat er gedaan wordt en
-            wat het kost. Zoek je een klusjesman in Utrecht voor klein werk? Stuur gerust een bericht.
-          </p>
+        <div class="contact-inner">
+          <h2 class="s-head">Klus te doen?</h2>
+          <p class="contact-sub">Beschrijf je klus en stuur me een bericht. Samen kijken we wat er nodig is.</p>
+          <div class="contact-links">
+            <a class="contact-link"
+               href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)&body=Hoi%20Jasper%2C%0A%0AIk%20heb%20hulp%20nodig%20bij%3A%0A-%20...%0A%0ALocatie%3A%20Utrecht%20(%20wijk%20...%20)%0AWanneer%3A%20...%0AFoto's%20(optioneel)%3A%20...%0A%0AGroet%2C%0A">
+              <div>
+                <span class="contact-link-label">E-mail</span>
+                <strong>info@jasperklust.nl</strong>
+              </div>
+              <span class="contact-link-arrow">→</span>
+            </a>
+            <a class="contact-link" href="tel:+31600000000">
+              <div>
+                <span class="contact-link-label">Telefoon</span>
+                <strong>06 12 345 678</strong>
+              </div>
+              <span class="contact-link-arrow">→</span>
+            </a>
+            <div class="contact-link">
+              <div>
+                <span class="contact-link-label">Bericht</span>
+                <strong>Signal of WhatsApp</strong>
+              </div>
+              <div class="icon-row">
+                <a class="icon-btn" href="https://signal.me/#p/+31600000000" target="_blank" rel="noopener" aria-label="Stuur een Signal-bericht">
+                  <img src="media/external/signal_icon.svg" alt="" aria-hidden="true" />
+                </a>
+                <a class="icon-btn" href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="Stuur een WhatsApp-bericht">
+                  <img src="media/external/whatsapp_icon.svg" alt="" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- SEO -->
+    <div class="seo-block">
+      <div class="wrap">
+        <p>
+          Jasper Klust helpt mensen in Utrecht met kleine klusjes in huis, zoals montage, ophangen en kleine reparaties. Denk aan kasten monteren, lampen en planken ophangen, of een deur die klemt. Je krijgt vooraf duidelijke afspraken over wat er gedaan wordt en wat het kost. Zoek je een klusjesman in Utrecht voor klein werk? Stuur gerust een bericht.
+        </p>
+      </div>
+    </div>
+
   </main>
 
   <footer>
     <div class="wrap">
-      <p style="margin: 14px 0 0; font-size:.95rem;">
-        © <span id="year"></span> Jasper Klust
-      </p>
+      <p>© <span id="year"></span> Jasper Klust</p>
     </div>
   </footer>
 
-  <!-- Mobile CTA bar -->
-  <div class="mobileBar" aria-label="Snelle acties">
-    <div class="row">
-      <a href="tel:+31600000000" aria-label="Bel Jasper">Bel</a>
-      <a class="primary" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)" aria-label="Mail Jasper">Mail</a>
-      <a href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="WhatsApp Jasper">App</a>
-      <a href="https://signal.me/#p/+31600000000" target="_blank" rel="noopener" aria-label="Signal Jasper">Signal</a>
+  <!-- Mobile sticky bar -->
+  <div class="mobile-bar" aria-label="Snelle acties">
+    <div class="mobile-bar-row">
+      <a class="mobile-bar-btn" href="tel:+31600000000" aria-label="Bel Jasper">Bel</a>
+      <a class="mobile-bar-btn primary" href="mailto:info@jasperklust.nl?subject=Klus%20aanvraag%20(Utrecht)" aria-label="Mail Jasper">Mail</a>
+      <a class="mobile-bar-btn" href="https://wa.me/31600000000" target="_blank" rel="noopener" aria-label="WhatsApp Jasper">App</a>
     </div>
   </div>
 
-
   <script>
-    // small nicety
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Optional: highlight active section in URL without jumping
-    const sections = ["diensten","werkwijze","tarief","over","contact"].map(id => document.getElementById(id)).filter(Boolean);
-    const setHash = (id) => history.replaceState(null, "", "#" + id);
-
-    const obs = new IntersectionObserver((entries) => {
-      const visible = entries.filter(e => e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
-      if (visible && visible.target && visible.target.id) setHash(visible.target.id);
-    }, { rootMargin: "-20% 0px -65% 0px", threshold: [0.1, 0.25, 0.5] });
-
-    sections.forEach(s => obs.observe(s));
-
-    // Manual reviews pagination
-    const reviewCards = Array.from(document.querySelectorAll("[data-review-card]"));
-    const reviewPrev = document.querySelector("[data-review-prev]");
-    const reviewNext = document.querySelector("[data-review-next]");
-    const reviewPage = document.querySelector("[data-review-page]");
-
-    if (reviewCards.length && reviewPrev && reviewNext && reviewPage) {
-      const getPerPage = () => window.matchMedia("(max-width: 920px)").matches ? 1 : 3;
-      const state = { page: 0, perPage: getPerPage() };
-
-      const renderReviews = () => {
-        state.perPage = getPerPage();
-        const totalPages = Math.max(1, Math.ceil(reviewCards.length / state.perPage));
-        if (state.page > totalPages - 1) state.page = totalPages - 1;
-        const start = state.page * state.perPage;
-        const end = start + state.perPage;
-
-        reviewCards.forEach((card, index) => {
-          card.classList.toggle("is-hidden", index < start || index >= end);
-        });
-
-        reviewPage.textContent = `${state.page + 1} / ${totalPages}`;
-        reviewPrev.disabled = state.page === 0;
-        reviewNext.disabled = state.page >= totalPages - 1;
-      };
-
-      reviewPrev.addEventListener("click", () => {
-        state.page = Math.max(0, state.page - 1);
-        renderReviews();
-      });
-
-      reviewNext.addEventListener("click", () => {
-        state.page = state.page + 1;
-        renderReviews();
-      });
-
-      window.addEventListener("resize", () => {
-        const nextPerPage = getPerPage();
-        if (nextPerPage !== state.perPage) renderReviews();
-      });
-
-      renderReviews();
-    }
-
   </script>
 </body>
 </html>
