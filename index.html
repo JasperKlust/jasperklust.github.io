@@ -12,8 +12,8 @@
     - Reviews: hidden for now. Remove class="reviews-off" from <body> to show them.
   -->
 
-  <title>Klusjesman Utrecht | Jasper Klust: montage, ophangen, elektra</title>
-  <meta name="description" content="Jasper Klust is je klusjesman in Utrecht: IKEA-kasten monteren, gordijnen en lampen ophangen, basis elektra en kleine reparaties. €48,50 per uur, 0% btw." />
+  <title>Klusjesman Utrecht | Jasper Klust: elektra, montage, ophangen</title>
+  <meta name="description" content="Jasper Klust is je klusjesman in Utrecht: IKEA-kasten monteren, gordijnen en lampen ophangen, basis elektra en kleine reparaties. €48,50 per uur, 0% btw, geen voorrijkosten." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://jasperklust.nl/" />
 
@@ -28,7 +28,7 @@
   <meta property="og:title" content="Jasper Klust | Klusjesman in Utrecht" />
   <meta property="og:description" content="IKEA-kasten, gordijnen, lampen en basis elektra. €48,50 per uur, 0% btw. Met de bakfiets door Utrecht." />
   <meta property="og:url" content="https://jasperklust.nl/" />
-  <meta property="og:image" content="https://jasperklust.nl/media/images/nepjasper.png" />
+  <meta property="og:image" content="https://jasperklust.nl/media/images/jasperenjorik.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <script type="application/ld+json">
@@ -40,7 +40,7 @@
     "url": "https://jasperklust.nl/",
     "logo": "https://jasperklust.nl/media/company_logo/logo_zwart_jasperklust.png",
     "image": "https://jasperklust.nl/media/images/nepjasper.png",
-    "telephone": "+31618010860",
+    "telephone": "+31600000000",
     "email": "info@jasperklust.nl",
     "priceRange": "€48,50 per uur",
     "areaServed": { "@type": "City", "name": "Utrecht" },
@@ -92,7 +92,7 @@
       --max: 1120px;
       --gutter: 20px;
       --radius: 20px;
-      --header-h: 0px;           /* header only sticks on larger screens */
+      --header-h: 64px;
     }
     @media (min-width: 720px) {
       :root { --gutter: 32px; --header-h: 76px; }
@@ -179,25 +179,54 @@
     .btn-sm { min-height: 44px; padding: 0 20px; font-size: 15.5px; }
 
     /* ---------- Header ---------- */
-    .site-header { background: var(--cream); }
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(246, 241, 231, .92);
+      -webkit-backdrop-filter: saturate(1.4) blur(12px);
+      backdrop-filter: saturate(1.4) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
     .nav {
       display: flex; align-items: center; gap: 16px;
-      min-height: 68px;
+      min-height: var(--header-h);
     }
     .brand { display: block; margin-left: -8px; }  /* the logo file has some built-in padding */
-    .brand img { height: 46px; width: auto; }
-    .nav-links { display: none; }
+    .brand img { height: 40px; width: auto; }
     .nav-cta { display: none; }
 
-    @media (min-width: 720px) {
-      .site-header {
-        position: sticky; top: 0; z-index: 50;
-        background: rgba(246, 241, 231, .9);
-        -webkit-backdrop-filter: saturate(1.4) blur(12px);
-        backdrop-filter: saturate(1.4) blur(12px);
+    /* Mobile: "Menu" button that opens a panel with the sections */
+    .menu-toggle {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 8px;
+      min-height: 42px; padding: 0 16px 0 12px;
+      background: none; border: 1.5px solid var(--line); border-radius: 999px;
+      color: var(--green); font: inherit; font-size: 15.5px; font-weight: 650;
+      cursor: pointer;
+    }
+    .menu-toggle .i { font-size: 20px; }
+    .menu-toggle .icon-close, .is-open .menu-toggle .icon-menu { display: none; }
+    .is-open .menu-toggle .icon-close { display: block; }
+    @media (max-width: 719px) {
+      .nav-links {
+        display: none;
+        position: absolute; left: 0; right: 0; top: 100%;
+        padding: 8px var(--gutter) 16px;
+        background: var(--cream);
         border-bottom: 1px solid var(--line);
+        box-shadow: 0 12px 24px rgba(19, 66, 50, .08);
       }
-      .nav { min-height: var(--header-h); }
+      .is-open .nav-links { display: grid; }
+      .nav-links a {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 16px 4px; border-bottom: 1px solid var(--line);
+        color: var(--green); font-size: 18px; font-weight: 650; text-decoration: none;
+      }
+      .nav-links a:last-child { border-bottom: none; }
+    }
+
+    @media (min-width: 720px) {
+      .brand img { height: 46px; }
+      .menu-toggle, .nav-links .nav-contact { display: none; }
       .nav-links { display: flex; gap: 2px; margin-left: auto; }
       .nav-links a {
         display: block; padding: 10px 14px; border-radius: 999px;
@@ -218,8 +247,11 @@
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
     .hero-actions .btn { flex: 1 1 220px; }
     .hero-facts {
-      display: flex; flex-wrap: wrap; gap: 12px 24px;
-      margin-top: 28px; font-size: 15.5px; color: var(--muted);
+      display: grid; gap: 12px 24px;
+      margin-top: 28px; font-size: 15px; color: var(--muted);
+    }
+    @media (min-width: 600px) {   /* two by two, side by side */
+      .hero-facts { grid-template-columns: repeat(2, auto); justify-content: start; }
     }
     .hero-facts li { display: flex; align-items: center; gap: 9px; }
     .hero-facts .i { font-size: 20px; width: 1.5em; color: var(--green); }  /* wide slot so the bakfiets fits and texts line up */
@@ -324,15 +356,9 @@
       border-radius: 28px; background: var(--cream);
     }
     .over-text p { font-size: 17.5px; line-height: 1.7; }
+    .over-text h2 { font-size: clamp(30px, 6vw, 44px); }
     .over-text h2 + p { margin-top: 24px; }
     .over-text p + p { margin-top: 14px; }
-    .over-text .note {
-      margin-top: 28px; padding: 18px 22px;
-      background: var(--paper); border-radius: 16px;
-      border-left: 6px solid var(--yellow);
-      font-size: 16px; color: var(--muted);
-    }
-    .note strong { color: var(--ink); }
     @media (min-width: 860px) {
       .over-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
     }
@@ -386,6 +412,13 @@
       color: var(--on-green-muted);
     }
     .facts dd { font-size: 16px; }
+    .contact-note {
+      padding: 16px 18px;
+      background: rgba(246, 241, 231, .08); border-radius: 14px;
+      border-left: 5px solid var(--yellow);
+      font-size: 15.5px; color: var(--on-green-muted);
+    }
+    .contact-note strong { color: var(--on-green); }
 
     .contact-options { display: grid; gap: 12px; align-content: start; }
     .contact-option {
@@ -415,6 +448,7 @@
 
     @media (max-width: 379px) {   /* small phones */
       :root { --gutter: 16px; }
+      .eyebrow { letter-spacing: .08em; }
       .job { grid-template-columns: 64px 1fr; gap: 14px; }
       .job-icon img { width: 64px; height: 64px; }
       .contact-card { padding: 28px 16px 16px; border-radius: 24px; }
@@ -428,7 +462,15 @@
     }
     @media (min-width: 960px) {
       #contact { padding-top: 40px; }
-      .contact-card { grid-template-columns: 1fr 1fr; gap: 64px; padding: 64px; }
+      .contact-card {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "intro options" "intro note";
+        grid-template-rows: auto 1fr;
+        gap: 24px 64px; padding: 64px;
+      }
+      .contact-intro { grid-area: intro; }
+      .contact-options { grid-area: options; }
+      .contact-note { grid-area: note; align-self: start; }
     }
 
     /* ---------- Footer ---------- */
@@ -477,12 +519,18 @@
       <a class="brand" href="#top" aria-label="Jasper Klust, naar boven">
         <img src="media/company_logo/logo_donkergroen_jasperklust.svg" alt="Jasper Klust" width="659" height="139" />
       </a>
-      <nav class="nav-links" aria-label="Menu">
+      <nav class="nav-links" id="menu" aria-label="Menu">
         <a href="#klussen">Klussen</a>
         <a href="#over">Over mij</a>
         <a href="#reviews" data-reviews>Reviews</a>
+        <a href="#contact" class="nav-contact">Contact</a>
       </nav>
       <a class="btn btn-primary btn-sm nav-cta" href="#contact">Contact</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+        <svg class="i icon-menu" aria-hidden="true"><use href="#i-menu" /></svg>
+        <svg class="i icon-close" aria-hidden="true"><use href="#i-close" /></svg>
+        Menu
+      </button>
     </div>
   </header>
 
@@ -492,28 +540,29 @@
     <section class="hero" id="top">
       <div class="wrap hero-grid">
         <div>
-          <p class="eyebrow">Montage · ophangen · elektra</p>
+          <p class="eyebrow">Elektra · ophangen · montage</p>
           <h1>Klusjesman<br> in Utrecht</h1>
           <p class="lead">
-            Een kast in elkaar zetten, gordijnen ophangen of een lamp aansluiten? Ik help je met de klussen in huis waar je zelf niet aan toekomt. Persoonlijk, netjes en met duidelijke afspraken vooraf.
+            Een stopcontact vervangen, een lamp ophangen of een kast monteren? Ik help je met elektra en andere klussen in huis waar je zelf niet aan toekomt. Persoonlijk, netjes en met duidelijke afspraken vooraf.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://wa.me/31600000000?text=Hoi%20Jasper%2C%20ik%20heb%20een%20klus%3A%20" target="_blank" rel="noopener">
               <svg class="i" aria-hidden="true"><use href="#i-whatsapp" /></svg>
-              Stuur een appje
+              Stuur een berichtje
             </a>
             <a class="btn btn-ghost" href="#contact">Alle contactopties</a>
           </div>
           <ul class="hero-facts">
-            <li><svg class="i" aria-hidden="true"><use href="#i-euro" /></svg><span><strong>€48,50</strong> per uur, 0% btw</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-tag" /></svg><span><strong>€48,50</strong> per uur, 0% btw</span></li>
             <li><svg class="i" aria-hidden="true"><use href="#i-bakfiets" /></svg>Met de bakfiets door Utrecht</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Geen voorrijkosten</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-calendar" /></svg>Do en vr, avond en weekend in overleg</li>
           </ul>
         </div>
 
         <figure class="hero-photo">
-          <img src="media/images/nepjasper.png" width="696" height="977"
-               alt="Jasper aan het werk met een accuboormachine" fetchpriority="high" />
+          <img src="media/images/jasperenjorik.png" width="755" height="1311"
+               alt="Jasper met zijn broer Jorik aan het klussen" fetchpriority="high" />
           <figcaption class="tape">Samen aan de slag?</figcaption>
         </figure>
       </div>
@@ -525,16 +574,16 @@
         <div class="section-head">
           <p class="eyebrow">Wat ik doe</p>
           <h2 id="klussen-title">Klussen in huis, groot en klein</h2>
-          <p class="section-intro">Een greep uit de klussen die ik het vaakst doe, in en rond Utrecht.</p>
+          <p class="section-intro">Een greep uit de klusjes die ik doe.</p>
         </div>
 
         <!-- Icons: square PNG, 512x512, transparent background (or #E4ECE3). Shown at 84 to 136 px. -->
         <ul class="jobs">
           <li class="job">
-            <div class="job-icon"><img src="media/icons/kast.png" width="512" height="512" alt="" loading="lazy" /></div>
+            <div class="job-icon"><img src="media/icons/elektra.png" width="512" height="512" alt="" loading="lazy" /></div>
             <div>
-              <h3>IKEA-kasten monteren</h3>
-              <p>Van PAX-kast tot complete keuken. Ik bouw hem op, stel de deurtjes af en zet alles stevig vast aan de muur.</p>
+              <h3>Basis elektra</h3>
+              <p>Een stopcontact, schakelaar of dimmer vervangen of erbij plaatsen.</p>
             </div>
           </li>
           <li class="job">
@@ -552,19 +601,22 @@
             </div>
           </li>
           <li class="job">
-            <div class="job-icon"><img src="media/icons/elektra.png" width="512" height="512" alt="" loading="lazy" /></div>
+            <div class="job-icon"><img src="media/icons/kast.png" width="512" height="512" alt="" loading="lazy" /></div>
             <div>
-              <h3>Basis elektra</h3>
-              <p>Een stopcontact, schakelaar of dimmer vervangen of erbij plaatsen.</p>
+              <h3>IKEA-kasten monteren</h3>
+              <p>Van PAX-kast tot complete keuken. Ik bouw hem op, stel de deurtjes af en zet alles stevig vast aan de muur.</p>
             </div>
           </li>
         </ul>
 
         <div class="more">
-          <h3>Ook vaak gevraagd</h3>
+          <h3>Meer klusjes</h3>
           <ul class="chips">
             <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>TV-beugels en planken ophangen</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Spiegels en schilderijen ophangen</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Spatwand in de keuken tegelen</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Keukenkastjes en aanrechtblad plaatsen</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Houten kastjes op maat, zoals een wasbakkast of kattenbakkast</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Klemmende deuren en lades afstellen</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Badkamerventilatie vervangen</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Kleine reparaties aan hang- en sluitwerk</li>
@@ -587,7 +639,6 @@
           <p>Ik woon in Utrecht en werk drie dagen per week bij Triodos. Daarnaast ben ik graag met mijn handen bezig: van klussen in huis krijg ik energie.</p>
           <p>Ik denk graag met je mee over je kluslijst en zorg dat alles netjes en praktisch wordt uitgevoerd. Je weet vooraf wat ik ga doen en wat het kost, zodat je niet voor verrassingen komt te staan.</p>
           <p>Ik kan de klus helemaal voor je doen, maar we kunnen ook samen aan de slag. Handig als je graag zelf meehelpt of wilt leren hoe iets moet.</p>
-          <p class="note"><strong>Zit je financieel krap</strong> maar heb je wel hulp nodig? Neem gerust contact op, dan kijken we samen wat past.</p>
         </div>
       </div>
     </section>
@@ -630,18 +681,21 @@
             <h2 id="contact-title">Klus te doen?</h2>
             <p>Stuur me een bericht met een korte omschrijving en, als het kan, een foto. Dan laat ik je weten wat ik kan doen en wat het ongeveer kost.</p>
             <dl class="facts">
-              <div><dt>Tarief</dt><dd>€48,50 per uur, 0% btw</dd></div>
+              <div><dt>Tarief</dt><dd>€48,50 per uur, 0% btw. Geen voorrijkosten.</dd></div>
               <div><dt>Wanneer</dt><dd>Donderdag en vrijdag. Avonden en weekenden in overleg.</dd></div>
               <div><dt>Waar</dt><dd>Utrecht en omgeving, met de bakfiets</dd></div>
               <div><dt>Hoe</dt><dd>Ik doe de klus voor je, of we doen hem samen</dd></div>
             </dl>
           </div>
 
+          <!-- Mobile: shown above the contact buttons. Desktop: right column, below the buttons. -->
+          <p class="contact-note"><strong>Zit je financieel krap</strong> maar heb je wel hulp nodig? Neem gerust contact op, dan kijken we samen wat past.</p>
+
           <ul class="contact-options">
             <li>
               <a class="contact-option is-primary" href="https://wa.me/31600000000?text=Hoi%20Jasper%2C%20ik%20heb%20een%20klus%3A%20" target="_blank" rel="noopener">
                 <span class="ico"><svg class="i" aria-hidden="true"><use href="#i-whatsapp" /></svg></span>
-                <span><small>WhatsApp</small><strong>Stuur een appje</strong></span>
+                <span><small>WhatsApp</small><strong>Stuur een bericht</strong></span>
                 <svg class="i arrow" aria-hidden="true"><use href="#i-arrow" /></svg>
               </a>
             </li>
@@ -655,7 +709,7 @@
             <li>
               <a class="contact-option" href="tel:+31600000000">
                 <span class="ico"><svg class="i" aria-hidden="true"><use href="#i-phone" /></svg></span>
-                <span><small>Bellen</small><strong style="white-space: nowrap">+316 18010860</strong></span>
+                <span><small>Bellen</small><strong style="white-space: nowrap">06 00 00 00 00</strong></span>
                 <svg class="i arrow" aria-hidden="true"><use href="#i-arrow" /></svg>
               </a>
             </li>
@@ -713,22 +767,28 @@
       <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
       <path d="m3 6.5 9 6.5 9-6.5" />
     </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="M6 6l12 12M18 6 6 18" />
+    </symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24">
       <path d="M5 12h14M13 6l6 6-6 6" />
     </symbol>
     <symbol id="i-check" viewBox="0 0 24 24">
       <path d="m5 12.5 4.5 4.5L19 7.5" />
     </symbol>
-    <symbol id="i-euro" viewBox="0 0 24 24">
-      <path d="M17.5 6.2a7 7 0 1 0 0 11.6" />
-      <path d="M4 10h9M4 14h9" />
+    <symbol id="i-tag" viewBox="0 0 24 24">
+      <path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 12V3h9l8.6 8.6a2 2 0 0 1 0 2.8z" />
+      <circle cx="7.6" cy="7.6" r="1.3" fill="currentColor" stroke="none" />
     </symbol>
     <!-- traced from media/icons/bakfiets.png; wide, so give it a wider box (see .hero-facts .i) -->
-    <symbol id="i-bakfiets" viewBox="-0.4 -0.4 32.4 15">
+    <symbol id="i-bakfiets" viewBox="2.2 -0.4 30 15">
       <g stroke-width="1.6">
         <circle cx="8.1" cy="10.17" r="3.55" />
         <circle cx="26.97" cy="9.66" r="4.03" />
-        <path d="M17.8 .48H15.8v9.18h-4.19M4.59 9.66H.48V4.55H15.8M17.3 9.66h9.67M23.93 1.45l-4.07 8.21M22.97 3.45l4 6.21M21.86 1.45h3.04" />
+        <path d="M17.8 .48H15.8v9.18h-4.19M4.59 9.66H3V2.9H15.8M17.3 9.66h9.67M23.93 1.45l-4.07 8.21M22.97 3.45l4 6.21M21.86 1.45h3.04" />
       </g>
     </symbol>
     <symbol id="i-calendar" viewBox="0 0 24 24">
@@ -739,6 +799,23 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile menu: open/close, and close after picking a section
+    (function () {
+      var header = document.querySelector(".site-header");
+      var toggle = document.querySelector(".menu-toggle");
+      if (!header || !toggle) return;
+      function setOpen(open) {
+        header.classList.toggle("is-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+      toggle.addEventListener("click", function () { setOpen(!header.classList.contains("is-open")); });
+      header.querySelectorAll(".nav-links a").forEach(function (a) {
+        a.addEventListener("click", function () { setOpen(false); });
+      });
+      document.addEventListener("click", function (e) { if (!header.contains(e.target)) setOpen(false); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+    })();
 
     // Hide the mobile contact bar while the contact section itself is visible.
     (function () {
